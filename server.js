@@ -1,5 +1,8 @@
 // load .env data into process.env
 require('dotenv').config();
+// COMMANDS to try in case of errors
+// grant all on users to labber; (change users to table name)
+// npm install pg@latest
 
 // Web server config
 const PORT       = process.env.PORT || 8080;
@@ -33,34 +36,44 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
+// const usersRoutes = require("./routes/users");
 // const widgetsRoutes = require("./routes/widgets");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
+// app.use("/api/users", usersRoutes(db));
 // app.use("/api/widgets", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
-
+//  ******************** ROUTES *****************************
 const listings = require("./routes/listings");
 app.use("/listings", listings(db));
+
+const listingsId = require("./routes/listingsid");
+app.use("/listings/:listingid", listingsId(db));
+
+const favorites = require("./routes/favorites");
+app.use("/favorites", favorites(db));
+
+const messages = require("./routes/messages");
+app.use("/messages", messages(db));
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-app.get("/", (req, res) => {
-  db.query(`SELECT * FROM users;`).then((data) => {
-    console.log(data, res)
-    res.render("index");
-  });
-});
 
 //if we were actually coding this out I'd put it in its own route file
 //but since we were told not to code out login stuff, I'm putting it here
 app.get('/login/:id', (req, res) => {
   req.session.user_id = req.params.id;
   res.redirect('/');
+});
+
+app.get("/", (req, res) => {
+  res.render("index");
+  // db.query(`SELECT * FROM users;`).then((data) => {
+  //   console.log(data, res)
+  // });
 });
 
 app.listen(PORT, () => {

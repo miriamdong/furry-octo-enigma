@@ -13,7 +13,7 @@ module.exports = (db) => {
     })
     .catch(err => {
       res.status(500);
-      console.log("ERROR in listings.js:", err);
+      console.log("ERROR in favorites.js:", err);
       //   .json({ error: err.message });
     });
     console.log("success", db);

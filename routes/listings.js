@@ -6,10 +6,10 @@ module.exports = (db) => {
     // res.json({hello: "how are you"})
     db.query(`SELECT * FROM users;`)
     .then(data => {
-      // res.render("listings");
+      res.render("listings");
       // console.log("Abcdefghij:", data);
-      const users = data.rows;
-      res.json({ users });
+      // const users = data.rows;
+      // res.json({ users });
     })
     .catch(err => {
       res.status(500);
