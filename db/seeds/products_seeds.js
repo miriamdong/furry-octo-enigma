@@ -41,7 +41,6 @@ const createFakeProducts = () => {
     created_at: genPastDate(),
     description: faker.commerce.productDescriptions(),
     price: faker.commerce.price(),
-    quantity: faker.random.number(),
     img: faker.image.imageURL()
   };
 };
