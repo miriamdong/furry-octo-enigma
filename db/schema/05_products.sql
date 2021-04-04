@@ -1,6 +1,6 @@
 -- Drop and recreate Widgets table (Example)
 
-DROP TABLE IF EXISTS Products CASCADE;
+DROP TABLE IF EXISTS products CASCADE;
 
 CREATE TABLE products (
   id SERIAL PRIMARY KEY NOT NULL,
