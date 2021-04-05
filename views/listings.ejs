@@ -40,8 +40,9 @@
     </div>
     <section class="listings">
       <div>
-        <%- for (let listings in listings) { %>
+        <%- for (let listing of listings) { %>
           <!-- <% if (item is NOT sold) { %>  only show items that are still on sale-->
+            <!-- need to show image of listing, description and price?-->
           <div class="action-buttons">
             <form method="GET" action="/listing/<%= listingid%>">
               <button type="submit">
