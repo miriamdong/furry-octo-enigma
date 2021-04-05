@@ -80,6 +80,12 @@ app.get('/login/:id', (req, res) => {
   res.redirect('/');
 });
 
+app.post('/logout', (req, res) => {
+  req.session.user_id = null;
+  // console.log("POTATO:", req.session.user_id);
+  res.redirect('/');
+});
+
 app.get("/", (req, res) => {
   const templateVars = {"user_id": req.session.user_id}
   res.render("index", templateVars);
