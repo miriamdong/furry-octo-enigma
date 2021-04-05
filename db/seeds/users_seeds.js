@@ -19,7 +19,7 @@ const createFakeUser = () => ({
   state: faker.address.state(),
   postal: faker.address.zipCode(),
   country: faker.address.country(),
-  member_since: faker.date.between(start, end)
+  created: faker.date.date(start)
 });
 
 exports.seed = async (knex) => {
