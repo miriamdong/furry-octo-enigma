@@ -5,23 +5,19 @@
       <span> Media Buy & Sell</span>
     </a>
   </div>
-  <% /*if (user) { */ %>
+  <% if (user_id) { %>
     <form method="POST" action="/logout" >
-      <label> Logged in as: <%= /*user.email */ %> </label>
+      <label> Logged in as: <%= user_id %> </label>
       <button type="submit">Logout</button>
     </form>
-  <% /* } else if (admin) { */ %>
-    <form method="POST" action="/logout" >
-      <label> Logged in as: <%= /* user.email */%> </label>
-      <button type="submit">Logout</button>
-  <% /* } else { */ %>
-    <form method="GET" action="/login/user" >
+  <% } else { %>
+    <form method="POST" action="/login/user" >
       <button type="submit">User Login</button>
     </form>
-    <form method="GET" action="/login/admin" >
+    <form method="POST" action="/login/admin" >
       <button type="submit">Admin Login</button>
     </form>
-  <% /* }  */%>
+  <% }  %>
   <nav>
     <section class="left-nav">
       <a href="/listings"> Shop</a>

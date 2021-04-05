@@ -74,7 +74,7 @@ app.use("/messages", messages(db));
 
 //if we were actually coding this out I'd put it in its own route file
 //but since we were told not to code out login stuff, I'm putting it here
-app.get('/login/:id', (req, res) => {
+app.post('/login/:id', (req, res) => {
   req.session.user_id = req.params.id;
   // console.log("POTATO:", req.session.user_id);
   res.redirect('/');
