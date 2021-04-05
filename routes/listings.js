@@ -7,7 +7,7 @@ module.exports = (db) => {
     // res.json({hello: "how are you"})
     db.query(`SELECT * FROM listings WHERE id = ${req.params.listingid};`)
     .then(data => {
-      const templateVars = {"listing": data.rows};
+      const templateVars = {"listing": data.rows, "user_id": req.session.user_id};
       res.render("listingsid", templateVars);
       // res.json(templateVars);
       // console.log("Abcdefghij:", data);
@@ -26,7 +26,7 @@ module.exports = (db) => {
     // // res.json({hello: "how are you"})
     db.query(`SELECT * FROM listings;`)
     .then(data => {
-      const templateVars = {"listings": data.rows};
+      const templateVars = {"listings": data.rows, "user_id": req.session.user_id};
       res.render("listings", templateVars);
       // res.json(templateVars);
       // console.log("Abcdefghij:", data);
