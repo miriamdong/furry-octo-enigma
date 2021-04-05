@@ -7,7 +7,7 @@ module.exports = (db) => {
     // // res.json({hello: "how are you"})
     db.query(`SELECT * FROM listings;`)
     .then(data => {
-      const templateVars = data.rows;
+      const templateVars = {"listings": data.rows};
       res.render("listings", templateVars);
       // res.json(templateVars);
       // console.log("Abcdefghij:", data);
