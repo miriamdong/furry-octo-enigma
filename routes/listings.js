@@ -3,13 +3,15 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    // res.json({hello: "how are you"})
-    db.query(`SELECT * FROM users;`)
+    // console.log("potato potato");
+    // // res.json({hello: "how are you"})
+    db.query(`SELECT * FROM listings;`)
     .then(data => {
-      res.render("listings");
+      const templateVars = data.rows;
+      res.render("listings", templateVars);
+      // res.json(templateVars);
       // console.log("Abcdefghij:", data);
       // const users = data.rows;
-      // res.json({ users });
     })
     .catch(err => {
       res.status(500);
