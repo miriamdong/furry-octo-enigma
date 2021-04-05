@@ -3,7 +3,7 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get("/:listingid", (req, res) => {
-    // console.log("POTATO:", req.params.listingid)
+    // console.log("POTATO:", req.session.user_id)
     // res.json({hello: "how are you"})
     db.query(`SELECT * FROM listings WHERE id = ${req.params.listingid};`)
     .then(data => {
@@ -22,7 +22,8 @@ module.exports = (db) => {
   });
 
   router.get("/", (req, res) => {
-    // console.log("potato potato");
+    console.log(`*****************************************************************POTATO
+    ********************************************************************************`, req.session.user_id);
     // // res.json({hello: "how are you"})
     db.query(`SELECT * FROM listings;`)
     .then(data => {
