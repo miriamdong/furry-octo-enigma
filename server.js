@@ -43,18 +43,6 @@ app.use(cookieSession({
 }));
 
 
-
-// Separated Routes for each Resource
-// Note: Feel free to replace the example routes below with your own
-// const usersRoutes = require("./routes/users");
-// const widgetsRoutes = require("./routes/widgets");
-
-// Mount all resource routes
-// Note: Feel free to replace the example routes below with your own
-// app.use("/api/users", usersRoutes(db));
-// app.use("/api/widgets", widgetsRoutes(db));
-// Note: mount other resources here, using the same pattern above
-
 //  ******************** ROUTES *****************************
 const listings = require("./routes/listings");
 app.use("/listings", listings(db));
@@ -68,22 +56,20 @@ app.use("/favorites", favorites(db));
 const messages = require("./routes/messages");
 app.use("/messages", messages(db));
 
-// Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
+//  ******************** LOG IN STUFF *****************************
 
 //if we were actually coding this out I'd put it in its own route file
 //but since we were told not to code out login stuff, I'm putting it here
 app.post('/login/:id', (req, res) => {
   req.session.user_id = req.params.id;
-  // console.log("POTATO:", req.session.user_id);
   res.redirect('/');
+  // console.log("POTATO:", req.session.user_id);
 });
 
 app.post('/logout', (req, res) => {
   req.session.user_id = null;
-  // console.log("POTATO:", req.session.user_id);
   res.redirect('/');
+  // console.log("POTATO:", req.session.user_id);
 });
 
 app.get("/", (req, res) => {

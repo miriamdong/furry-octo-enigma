@@ -22,8 +22,7 @@ module.exports = (db) => {
   });
 
   router.get("/", (req, res) => {
-    console.log(`*****************************************************************POTATO
-    ********************************************************************************`, req.session.user_id);
+    // console.log(`Potato`, req.session.user_id);
     // // res.json({hello: "how are you"})
     db.query(`SELECT * FROM listings;`)
     .then(data => {
