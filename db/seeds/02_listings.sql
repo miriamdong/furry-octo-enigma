@@ -1,4 +1,4 @@
-INSERT INTO listings (image_url, title, created_at, featured, price, status)
+INSERT INTO listings (image_url, title, created_at, featured, price, active)
 VALUES  ('url', 'NEW Album', 'April 17, 2019', true, 50, true),
         ('url', 'On the Line', 'March 22, 2019', true, 30, true),
         ('url', 'thank u, next', 'February 8, 2019', true, 22, false),

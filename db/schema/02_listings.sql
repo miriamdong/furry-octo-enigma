@@ -8,6 +8,6 @@ CREATE TABLE listings (
   price INTEGER NOT NULL DEFAULT 0,
   description TEXT,
   created_at timestamp DEFAULT NOW(),
-  status BOOLEAN NOT NULL DEFAULT FALSE,
+  active BOOLEAN NOT NULL DEFAULT FALSE,
   featured BOOLEAN NOT NULL DEFAULT FALSE
 );
