@@ -195,12 +195,13 @@ exports.addListing = addListing;
  * @return {Promise<{}>} A promise to the property.
  */
 
-const markAsSold = function(seller_id) {
+const markAsSold = function(seller_id, listing) {
   return db.query(`
   UPDATE listings
   SET listing.active = false
   WHERE seller_id = $1
-  RETURNING *;`, [seller_id])
+  AND listings.id = $2
+  RETURNING *;`, [seller_id, listing.id])
     .then(res => res.rows[0])
     .catch(err =>
       setImmediate(() => {
@@ -208,8 +209,5 @@ const markAsSold = function(seller_id) {
       }));
 
 };
-
-
-
 
 exports.markAsSold = markAsSold;
