@@ -57,8 +57,8 @@ app.use(cookieSession({
 const listings = require("./routes/listings");
 app.use("/listings", listings(db));
 
-const listingsId = require("./routes/listingsid");
-app.use("/listings/:listingid", listingsId(db));
+// const listingsId = require("./routes/listingsid");
+// app.use("/listings/:listingid", listingsId(db, req.params.id));
 
 const favorites = require("./routes/favorites");
 app.use("/favorites", favorites(db));
