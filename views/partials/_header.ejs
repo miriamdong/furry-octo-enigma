@@ -5,10 +5,23 @@
       <span> Media Buy & Sell</span>
     </a>
   </div>
-  <!-- This is Stephanie's code, it can be discarded in favor of Karina's -->
-  <form method="GET" action="/login/user">
-    <button type="submit">Login</button>
-  </form>
+  <% if (user) { %>
+    <form method="POST" action="/logout" >
+      <label> Logged in as: <%= user.email %> </label>
+      <button type="submit">Logout</button>
+    </form>
+  <% } else if (admin) { %>
+    <form method="POST" action="/logout" >
+      <label> Logged in as: <%= user.email %> </label>
+      <button type="submit">Logout</button>
+  <% } else { %>
+    <form method="GET" action="/login/user" >
+      <button type="submit">User Login</button>
+    </form>
+    <form method="GET" action="/login/admin" >
+      <button type="submit">Admin Login</button>
+    </form>
+  <% } %>
   <nav>
     <section class="left-nav">
       <a href="/listings"> Shop</a>
