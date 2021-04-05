@@ -12,6 +12,15 @@
   </head>
 
   <body>
-    <h1>This is a page containing all listings</h1>
+    <%- include('partials/_header') %>
+    <h1>Browse Listings</h1>
+    <form method="POST" action="/#">
+      <label> Price Range:</label>
+      <textarea name="text" placeholder="Minimum Price"></textarea>
+      <textarea name="text" placeholder="Maximum Price"></textarea>
+      <button type="submit">Filter</button>
+    </form>
+    <section class="listings">
+    </section>
   </body>
 </html>
