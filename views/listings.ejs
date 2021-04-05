@@ -16,6 +16,7 @@
       <button type="submit">Filter</button>
     </form>
     <div>
+      <!-- Only toggle the form once the create listing button is clicked? -->
       <h3>Create New Listing</h3>
       <form method="POST" action="/listing/:listingid">
         <label>Album Name:</label><br>
@@ -38,10 +39,33 @@
       </form>
     </div>
     <section class="listings">
+      <div>
+        <%- for (let listings in listings) { %>
+          <!-- <% if (item is NOT sold) { %>  only show items that are still on sale-->
+          <div class="action-buttons">
+            <form method="GET" action="/listing/<%= listingid%>">
+              <button type="submit">
+                <i class="far fa-eye"></i>
+                View More
+              </button>
+            </form>
+            <form method="GET" action="/messages/<%= listingid%>">
+              <button type="submit">
+                <i class="fas fa-comments"></i>
+                Message Seller
+              </button>
+            </form>
+            <form method="POST" action="/favorites/<%= listingid%>">
+              <button type="submit">
+                <i class="fas fa-heart"></i>
+                Add to Favourites
+              </button>
+            </form>
+            <%- } %>
+
+          </div>
+        <%- } %>
+      </div>
     </section>
   </body>
-  <p>
-    <%- JSON.stringify(listings) %>
-  </p>
-
 </html>
