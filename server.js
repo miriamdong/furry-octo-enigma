@@ -42,6 +42,8 @@ app.use(cookieSession({
   // maxAge: 24 * 60 * 60 * 1000 // 24 hours
 }));
 
+
+
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 // const usersRoutes = require("./routes/users");
@@ -57,8 +59,8 @@ app.use(cookieSession({
 const listings = require("./routes/listings");
 app.use("/listings", listings(db));
 
-const listingsId = require("./routes/listingsid");
-app.use("/listings/:listingid", listingsId(db));
+// const listingsId = require("./routes/listingsid");
+// app.use("/listings/:listingid", listingsId(db, req.params.id));
 
 const favorites = require("./routes/favorites");
 app.use("/favorites", favorites(db));
@@ -74,12 +76,13 @@ app.use("/messages", messages(db));
 //but since we were told not to code out login stuff, I'm putting it here
 app.get('/login/:id', (req, res) => {
   req.session.user_id = req.params.id;
-  console.log("POTATO:", req.session.user_id);
+  // console.log("POTATO:", req.session.user_id);
   res.redirect('/');
 });
 
 app.get("/", (req, res) => {
-  res.render("index");
+  const templateVars = {"user_id": req.session.user_id}
+  res.render("index", templateVars);
   // db.query(`SELECT * FROM users;`).then((data) => {
   //   console.log(data, res)
   // });
