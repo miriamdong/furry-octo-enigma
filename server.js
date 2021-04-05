@@ -9,6 +9,7 @@ const PORT       = process.env.PORT || 8080;
 const ENV        = process.env.ENV || "development";
 const express    = require("express");
 const bodyParser = require("body-parser");
+const cookieSession = require('cookie-session');
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
@@ -33,6 +34,13 @@ app.use("/styles", sass({
   outputStyle: 'expanded'
 }));
 app.use(express.static("public"));
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2'],
+
+  // Cookie Options
+  // maxAge: 24 * 60 * 60 * 1000 // 24 hours
+}));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
@@ -65,7 +73,9 @@ app.use("/messages", messages(db));
 //if we were actually coding this out I'd put it in its own route file
 //but since we were told not to code out login stuff, I'm putting it here
 app.get('/login/:id', (req, res) => {
+  // req.session.user_id = "potato";
   req.session.user_id = req.params.id;
+  console.log("POTATO:", req.session.user_id);
   res.redirect('/');
 });
 
