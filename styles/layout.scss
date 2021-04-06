@@ -1,14 +1,15 @@
 // See: https://sass-lang.com/
 
 nav {
-  display: flex;
-  flex-direction: column;
+  // display: none;
+  // flex-direction: column;
   width: 100%;
   height: 20vh;
   font-family: "Oswald", sans-serif;
   color: white;
   position: fixed;
   top: 0;
+  left: 0;
   z-index: 1;
   // border: black solid 5px;
 
@@ -50,6 +51,9 @@ nav {
 
 body {
   background-color: #EEE;
+  padding-top: 20vh;
+  // display: flex;
+  // justify-content: center;
 
   h1 {
     color: #244751;
@@ -78,30 +82,45 @@ body {
 }
 
 // Messages Styling
-#message-container {
-  width: 80%;
-  max-width: 1200px;
-}
-
-#message-container div {
-  background-color: #CCC;
-  padding: 5px;
-}
-
-#message-container div:nth-child(2n) {
-  background-color: #FFF;
-}
-
-#send-container {
-  position: fixed;
-  padding-bottom: 30px;
-  bottom: 0;
-  background-color: white;
-  max-width: 1200px;
-  width: 80%;
+#chat {
+  border: green solid 5px;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+
+  #message-container {
+    width: 80%;
+    max-width: 1200px;
+    border: red solid 5px;
+  }
+
+  #message-container div {
+    background-color: #CCC;
+    padding: 5px;
+
+  }
+
+  #message-container div:nth-child(2n) {
+    background-color: #FFF;
+  }
+
+  #send-container {
+    // position: fixed;
+    // padding-bottom: 30px;
+    // bottom: 0;
+    background-color: white;
+    max-width: 1200px;
+    width: 80%;
+    display: flex;
+    border: blue solid 5px;
+  }
+
+  #message-input {
+    flex-grow: 1;
+    height: 2em;
+  }
+
+
 }
 
-#message-input {
-  flex-grow: 1;
-}
