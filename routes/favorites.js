@@ -19,5 +19,21 @@ module.exports = (db) => {
     // });
     // console.log("success", db);
   });
+
+  router.post("/:listingid", (req, res) => {
+    // const queryParams = ["favorites"];
+    const queryString = `SELECT * FROM favorites;`;
+    db.query( queryString)
+    .then(data => {
+      console.log("*****************************************************Abcdefghij:", data);
+      // const users = data.rows;
+      // res.json({ users });
+    })
+    .catch(err => {
+      res.status(500);
+      console.log("ERROR in favorites.js:", err);
+      //   .json({ error: err.message });
+    });
+  });
   return router;
 };
