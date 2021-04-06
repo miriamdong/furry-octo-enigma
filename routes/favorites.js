@@ -21,7 +21,7 @@ module.exports = (db) => {
   });
 
   router.post("/:listingid", (req, res) => {
-    const queryParams = ["1","7"];
+    const queryParams = ["1", req.params.listingid]; //"1" can easily be swapped out for a user cookie down the road
     const queryString = `INSERT INTO favorites (user_id, listing_id, date_added)
     VALUES
     ($1, $2, NOW())`;
