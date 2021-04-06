@@ -168,13 +168,16 @@ exports.getAllListings = getAllListings;
  * @param {{}} property An object containing all of the property details.
  * @return {Promise<{}>} A promise to the property.
  */
+
+
 const addListing = function(listing) {
+  const now = new Date();
   return db.query(`
   INSERT INTO listings
   (title, description, seller_id, img_url, price, created_at, featured, active)
   VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
   RETURNING *;`, [listing.title, listing.description, listing.seller_id, listing.img_url,
-      listing.price, listing.featured, listing.active
+      listing.price, now, listing.featured, listing.active
     ])
     .then(res => res.rows[0])
     .catch(err =>
@@ -211,3 +214,16 @@ const markAsSold = function(seller_id, listing) {
 };
 
 exports.markAsSold = markAsSold;
+
+const now = new Date();
+
+const addMsg = function(user_id, seller_id, listing_id, txt_msg) {
+  db.query(`INSERT INTO chats (from_id, to_id, listing_id, txt_msg, date_time) VALUES ($1, $2, $3, $4, $5) RETURNING *;`, [user_id, seller_id, listing_id, txt_msg, now])
+    .then(res => res.rows[0])
+    .catch(err =>
+      setImmediate(() => {
+        throw err;
+      }));
+};
+
+exports.addMsg = addMsg;
