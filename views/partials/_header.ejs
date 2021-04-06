@@ -5,6 +5,7 @@
       <span> Media Buy & Sell</span>
     </a>
   </div>
+<<<<<<< HEAD
   <% if (user_id) { %>
     <form method="POST" action="/logout" >
       <label> Logged in as: <%= user_id %> </label>
@@ -30,4 +31,35 @@
       <a href="/listings/:listingid"> Create Listing</a>
     </section>
   </nav>
+=======
+  <% /*if (user) { */ %>
+  <form method="POST" action="/logout">
+    <label> Logged in as: <%= /*user.email */ %> </label>
+    <button type="submit">Logout</button>
+  </form>
+  <% /* } else if (admin) { */ %>
+  <form method="POST" action="/logout">
+    <label> Logged in as: <%= /* user.email */%> </label>
+    <button type="submit">Logout</button>
+    <% /* } else { */ %>
+    <form method="GET" action="/login/user">
+      <button type="submit">User Login</button>
+    </form>
+    <form method="GET" action="/login/admin">
+      <button type="submit">Admin Login</button>
+    </form>
+    <% /* }  */%>
+    <nav>
+      <section class="left-nav">
+        <a href="/listings"> Shop</a>
+        <a href="/"> Featured</a>
+        <!-- <a href=#> My Listings </a> -->
+      </section>
+      <section class="right-nav">
+        <a href="/favorites"> Favourites</a>
+        <a href="/messages"> Messages</a>
+        <a href="/listings/:listingid"> Create Listing</a>
+      </section>
+    </nav>
+>>>>>>> db
 </header>
