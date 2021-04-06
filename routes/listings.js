@@ -41,8 +41,16 @@ module.exports = (db) => {
   });
 
   router.post("/:listingid", (req, res) => {
-    // console.log("********************************************************POTATO:", req)
+    console.log("********************************************************POTATO:", req.body)
     // res.json({hello: "how are you"})
+
+    /*
+    text -> names
+    action: listing id -> post listings (change route to just listings)
+    req.params -> route,
+    req.body -> form body
+    */
+
     // db.query(`SELECT * FROM listings WHERE id = ${req.params.listingid};`)
     // .then(data => {
     //   const templateVars = {"listing": data.rows, "user_id": req.session.user_id};
