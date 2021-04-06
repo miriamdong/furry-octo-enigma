@@ -8,17 +8,43 @@ require('dotenv').config();
 // npm install pg@latest
 
 // Web server config
-const PORT       = process.env.PORT || 8080;
-const ENV        = process.env.ENV || "development";
-const express    = require("express");
-const bodyParser = require("body-parser");
+const PORT = process.env.PORT || 8080;
+const ENV = process.env.ENV || "development";
+const morgan = require('morgan');
+const express = require("express");
 const cookieSession = require('cookie-session');
-const sass       = require("node-sass-middleware");
-const app        = express();
-const morgan     = require('morgan');
+const sass = require("node-sass-middleware");
+const app = require('express')();
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
+
+
+const users = {};
+
+io.on('connection', socket => {
+  socket.on('new-user', name => {
+    users[socket.id] = name;
+    socket.broadcast.emit('user-connected', name);
+  });
+  socket.on('send-chat-message', message => {
+    socket.broadcast.emit('chat-message', {
+      message: message,
+      name: users[socket.id]
+    });
+  });
+  socket.on('disconnect', () => {
+    socket.broadcast.emit('user-disconnected', users[socket.id]);
+    delete users[socket.id];
+  });
+});
+
+
+
 
 // PG database client/connection setup
-const { Pool } = require('pg');
+const {
+  Pool
+} = require('pg');
 const dbParams = require('./lib/db.js');
 const db = new Pool(dbParams);
 db.connect();
@@ -29,7 +55,9 @@ db.connect();
 app.use(morgan('dev'));
 
 app.set("view engine", "ejs");
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({
+  extended: true
+}));
 app.use("/styles", sass({
   src: __dirname + "/styles",
   dest: __dirname + "/public/styles",
@@ -83,6 +111,6 @@ app.get("/", (req, res) => {
   // });
 });
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
