@@ -104,7 +104,9 @@ app.post('/logout', (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  const templateVars = {"user_id": req.session.user_id}
+  const templateVars = {
+    "user_id": req.session.user_id
+  }
   res.render("index", templateVars);
   // db.query(`SELECT * FROM users;`).then((data) => {
   //   console.log(data, res)
