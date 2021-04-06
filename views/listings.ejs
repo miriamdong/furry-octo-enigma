@@ -30,7 +30,7 @@
         <label>Year Released:</label><br>
         <textarea name="text" placeholder="Year Released"></textarea><br>
         <label>Description:</label><br>
-        <textarea name="text" placeholder="Year Released"></textarea><br>
+        <textarea name="text" placeholder="Description"></textarea><br>
         <label>Price:</label><br>
         <textarea name="text" placeholder="Price"></textarea><br>
         <label>Image:</label><br>
@@ -38,34 +38,35 @@
         <input type="submit" value="Submit">
       </form>
     </div>
-    <section class="listings">
+    <section class="listings-list">
       <div>
-        <%- for (let listing of listings) { %>
-          <!-- <% if (item is NOT sold) { %>  only show items that are still on sale-->
-            <!-- need to show image of listing, description and price?-->
-          <div class="action-buttons">
-            <form method="GET" action="/listing/<%= listingid%>">
+        <% for (let listing in listings) { %>
+          <section>
+            <img src="<%=listings[listing]['image_url'] %>" />
+            <h4><%= listings[listing]['title'] %></h4>
+            <p>$<%= listings[listing]['price'] %>.00</p>
+          </section>
+         <div class="action-buttons">
+            <form method="GET" action="/listing/%= listings[listing]['listingid']%>">
               <button type="submit">
                 <i class="far fa-eye"></i>
                 View More
               </button>
             </form>
-            <form method="GET" action="/messages/<%= listingid%>">
+            <form method="GET" action="/messages/%= listings[listing]['seller_id']%>">
               <button type="submit">
                 <i class="fas fa-comments"></i>
                 Message Seller
               </button>
             </form>
-            <form method="POST" action="/favorites/<%= listingid%>">
+            <form method="POST" action="/favorites/%= listings[listing]['listingid']%>">
               <button type="submit">
                 <i class="fas fa-heart"></i>
                 Add to Favourites
               </button>
             </form>
-            <%- } %>
-
           </div>
-        <%- } %>
+        <% } %>
       </div>
     </section>
   </body>
