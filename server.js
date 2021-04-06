@@ -2,6 +2,9 @@
 require('dotenv').config();
 // COMMANDS to try in case of errors
 // grant all on users to labber; (change users to table name)
+// GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO labber;
+// for tbl in `psql -qAt -c "select tablename from pg_tables where schemaname = 'public';" midterm` ;
+// do  psql -c "alter table \"$tbl\" owner to labber" midterm ; done
 // npm install pg@latest
 
 // Web server config
