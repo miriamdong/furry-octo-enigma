@@ -9,7 +9,7 @@ const router = express.Router();
 module.exports = (db) => {
   router.get("/", (req, res) => {
     const templateVars = {"user_id": req.session.user_id}; //"listing": data.rows,
-    res.render("favorites", templateVars);
+    res.render("messages", templateVars);
   //   // res.json({hello: "how are you"})
   //   db.query(`SELECT * FROM users;`)
   //   .then(data => {
