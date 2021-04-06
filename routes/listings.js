@@ -41,7 +41,7 @@ module.exports = (db) => {
   });
 
   router.post("/:listingid", (req, res) => {
-    console.log("POTATO:", req)
+    // console.log("********************************************************POTATO:", req)
     // res.json({hello: "how are you"})
     // db.query(`SELECT * FROM listings WHERE id = ${req.params.listingid};`)
     // .then(data => {
