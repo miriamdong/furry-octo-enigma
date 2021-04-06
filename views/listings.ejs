@@ -38,9 +38,10 @@
         <input type="submit" value="Submit">
       </form>
     </div>
-    <section class="listings-list">
+    <section>
       <div>
         <% for (let listing in listings) { %>
+          <div class="listing-container">
           <section>
             <img src="<%=listings[listing]['image_url'] %>" />
             <h4><%= listings[listing]['title'] %></h4>
@@ -66,6 +67,7 @@
               </button>
             </form>
           </div>
+        </div>
         <% } %>
       </div>
     </section>
