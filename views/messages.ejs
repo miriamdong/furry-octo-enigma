@@ -11,13 +11,18 @@
 
   <body id="chat">
     <%- include('partials/_header') %>
-    <h1>Messages Center</h1>
+    <div class="messages-window">
+      <h1>Messages Center</h1>
 
-    <div id="message-container"></div>
-    <form id="send-container">
-      <input type="text" id="message-input">
-      <button type="submit" id="send-button">Send</button>
-    </form>
+      <div class="messaging">
+        <div id="message-container"></div>
+        <form id="send-container">
+          <input type="text" id="message-input" placeholder="Write your message here...">
+          <button type="submit" id="send-button">Send</button>
+        </form>
+      </div>
+
+    </div>
 
   </body>
 
