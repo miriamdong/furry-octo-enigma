@@ -21,9 +21,11 @@ module.exports = (db) => {
   });
 
   router.post("/:listingid", (req, res) => {
-    // const queryParams = ["favorites"];
-    const queryString = `SELECT * FROM favorites;`;
-    db.query( queryString)
+    const queryParams = ["1","7"];
+    const queryString = `INSERT INTO favorites (user_id, listing_id, date_added)
+    VALUES
+    ($1, $2, NOW())`;
+    db.query( queryString, queryParams)
     .then(data => {
       console.log("*****************************************************Abcdefghij:", data);
       // const users = data.rows;
