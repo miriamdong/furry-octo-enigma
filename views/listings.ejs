@@ -9,7 +9,7 @@
   <body>
     <%- include('partials/_header') %>
     <h1>Browse Listings</h1>
-    <form method="POST" action="/#">
+    <form class="price-filter" method="POST" action="/#">
       <label> Price Range:</label>
       <textarea name="text" placeholder="Minimum Price"></textarea>
       <textarea name="text" placeholder="Maximum Price"></textarea>
@@ -20,24 +20,32 @@
       <h3>Create New Listing</h3>
       <form method="POST" action="/listings">
         <label>Title of Listing:</label><br>
-        <textarea name="albumname" placeholder="Album Name"></textarea><br>
+        <textarea name="listing-title" placeholder="Title of Listing"></textarea><br>
         <label>Image:</label><br>
         <textarea name="image" placeholder="Image URL"></textarea><br>
         <label>Price:</label><br>
         <textarea name="price" placeholder="Price"></textarea><br>
         <label>Description:</label><br>
         <textarea name="description" placeholder="Description"></textarea><br>
+
         <p> Item Details:</p>
         <label>Album Name:</label><br>
         <textarea name="albumname" placeholder="Album Name"></textarea><br>
         <label>Artist:</label><br>
-        <textarea name="artistname" placeholder="Artist"></textarea><br>
+        <textarea name="artistname" placeholder="Artist Name"></textarea><br>
         <label>Genre:</label><br>
         <textarea name="genre" placeholder="Genre"></textarea><br>
         <label>Publisher:</label><br>
         <textarea name="publisher" placeholder="Publisher"></textarea><br>
         <label>Year Released:</label><br>
         <textarea name="year" placeholder="Year Released"></textarea><br>
+
+        <p>Do you want this listing to be featured?</p>
+        <input type="radio" id="featuredY" name="featured" value="true">
+        <label for="featuredY">Yes</label>
+        <input type="radio" id="featuredN" name="featured" value="false">
+        <label for="featuredN">No</label><br>
+
         <input type="submit" value="Submit">
       </form>
     </div>
