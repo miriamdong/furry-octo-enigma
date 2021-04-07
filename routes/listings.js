@@ -97,27 +97,27 @@ module.exports = (db) => {
 
   //******************************** LISTING DELETE ******************************
   router.post("/:listingid/delete", (req, res) => {
-    res.json({hello: "how are you"})
-    // // console.log("POTATO:", req.session.user_id)
-    // const queryString = `
-    // DELETE FROM listings
-    // WHERE id = $1`;
+    // res.json({hello: "how are you"})
+    // console.log("POTATO:", req.session.user_id)
+    const queryString = `
+    DELETE FROM listings
+    WHERE id = $1`;
 
-    // const queryParams = [req.params.listingid];
-    // db.query( queryString, queryParams)
-    // .then(data => {
-    //   // const templateVars = {"listing": data.rows, "user_id": req.session.user_id};
-    //   // res.render("listingsid", templateVars);
-    //   // res.json(templateVars);
-    //   // console.log("Abcdefghij:", data);
-    //   // const users = data.rows;
-    //   res.redirect(`/listings/${req.params.listingid}`);
-    // })
-    // .catch(err => {
-    //   res.status(500);
-    //   console.log("ERROR in listings.js:", err);
-    //   //   .json({ error: err.message });
-    // });
+    const queryParams = [req.params.listingid];
+    db.query( queryString, queryParams)
+    .then(data => {
+      // const templateVars = {"listing": data.rows, "user_id": req.session.user_id};
+      // res.render("listingsid", templateVars);
+      // res.json(templateVars);
+      // console.log("Abcdefghij:", data);
+      // const users = data.rows;
+      res.redirect(`/listings`);
+    })
+    .catch(err => {
+      res.status(500);
+      console.log("ERROR in listings.js:", err);
+      //   .json({ error: err.message });
+    });
   });
   return router;
 };
