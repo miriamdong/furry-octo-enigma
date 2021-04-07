@@ -47,16 +47,19 @@ module.exports = (db) => {
     console.log("********************************************************POTATO:", req.body)
     // res.json({hello: "how are you"})
 
-    const queryParams = [req.body.image, "1", req.body ]; //"1" can easily be swapped out for a user cookie down the road
-    const queryString = `INSERT INTO listings (image_url, seller_id, title, created_at, featured, price, active)
+    //"1" can easily be swapped out for a user cookie down the road
+    const queryParams = [req.body.image, "1", req.body.listingtitle, req.body.featured, req.body.price, "true", req.body.description];
+    // const queryParams = ["","","","","","",""]
+    const queryString = `INSERT INTO listings (image_url, seller_id, title, created_at, featured, price, active, description)
     VALUES
-    ($1, $2, $3, $4, $5, $6, $7),`;
-    //('url', 6, 'On the Line', 'March 22, 2019', true, 30, true)
+    ($1, $2, $3, NOW(), $4, $5, $6, $7)`;
+    //url, 6, 'War', 'April 17, 2019', true, 50, true)
     db.query( queryString, queryParams)
     .then(data => {
-      console.log("*****************************************************Abcdefghij:", data);
+      // console.log("*****************************************************Abcdefghij:", data);
       // const users = data.rows;
       // res.json({ users });
+      res.redirect("/listings");
     })
     .catch(err => {
       res.status(500);
