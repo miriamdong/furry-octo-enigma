@@ -54,8 +54,24 @@ $(() => {
     messageContainer.append(messageElement)
   }
 
+  // $('.faveButton').click(function(e) {
+  //   e.preventDefault();
+  //   $.ajax({
+  //       url: '/listings/',
+  //       type: 'POST',
+  //       data: {
+  //         'submit': true
+  //       }
+  //     })
+  //     .done((user_id) => {
+  //       $(this).toggleClass('fave');
+  //     })
+  //     .catch((error) => {
+  //       console.log("error", error);
+  //     });
+  //   }
 
-
-
-
+  $(".faveButton").click(function() {
+    $(this).css("color", "red");
+  });
 });
