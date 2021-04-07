@@ -49,5 +49,25 @@ module.exports = (db) => {
         //   .json({ error: err.message });
       });
   });
+
+  router.post("/:listingid/delete", (req, res) => {
+    // res.json({hello: "how are you"});
+    const queryParams = [req.params.listingid]; //"1" can easily be swapped out for a user cookie down the road
+    const queryString = `DELETE FROM favorites WHERE listing_id = $1 `;
+    db.query(queryString, queryParams)
+      .then(data => {
+        // console.log("*****************************************************Abcdefghij:", data);
+        // res.done();
+        // const users = data.rows;
+        // res.json({ users });
+        res.redirect("/favorites");
+      })
+      .catch(err => {
+        res.status(500);
+        console.log("ERROR in favorites.js:", err);
+        //   .json({ error: err.message });
+      });
+
+  });
   return router;
 };
