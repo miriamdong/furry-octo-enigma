@@ -21,9 +21,22 @@
       <section class="featured-listings">
       </section>
     </div>
-    <p>
-      <%- JSON.stringify(data) %>
-    </p>
+    <% for (let featured in data) { %>
+      <div class="featured-container">
+        <section>
+          <img src="<%=data[featured]['image_url'] %>" />
+          <h4><%- data[featured]['title'] %></h4>
+          <p>$<%- data[featured]['price'] %>.00</p>
+        </section>
+        <div class="action-buttons">
+          <form method="GET" action="/listing/<%- data[featured]['listingid']%>">
+            <button type="submit">
+              <i class="far fa-eye"></i>
+              View More
+            </button>
+          </form>
+      </div>
+    <% } %>
   </body>
 
 </html>

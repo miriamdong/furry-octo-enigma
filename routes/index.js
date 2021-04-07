@@ -67,7 +67,7 @@ module.exports = (db) => {
       .then(data => { //res.rows
         const templateVars = {
           "user_id": req.session.user_id,
-          "data": data
+          "data": data.rows
         }
         // console.log("***********************************success!", data)
         res.render("index", templateVars);
