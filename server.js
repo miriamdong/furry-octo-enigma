@@ -87,6 +87,9 @@ app.use("/favorites", favorites(db));
 const messages = require("./routes/messages");
 app.use("/messages", messages(db));
 
+const index = require("./routes/index");
+app.use("/", index(db));
+
 //  ******************** LOG IN STUFF *****************************
 
 //if we were actually coding this out I'd put it in its own route file
@@ -101,16 +104,6 @@ app.post('/logout', (req, res) => {
   req.session.user_id = null;
   res.redirect('/');
   // console.log("POTATO:", req.session.user_id);
-});
-
-app.get("/", (req, res) => {
-  const templateVars = {
-    "user_id": req.session.user_id
-  }
-  res.render("index", templateVars);
-  // db.query(`SELECT * FROM users;`).then((data) => {
-  //   console.log(data, res)
-  // });
 });
 
 server.listen(PORT, () => {
