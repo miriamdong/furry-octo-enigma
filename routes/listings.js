@@ -68,5 +68,34 @@ module.exports = (db) => {
     });
   });
 
+  //******************************** LISTING UPDATE ******************************
+  //Change query from Select to Update, change active to false
+  router.post("/:listingid/update", (req, res) => {
+    // res.json({hello: "how are you"})
+    // console.log("POTATO:", req.session.user_id)
+    const queryString = `
+    UPDATE listings
+    SET active = false
+    WHERE id = $1`;
+
+    const queryParams = [req.params.listingid];
+    db.query( queryString, queryParams)
+    .then(data => {
+      // const templateVars = {"listing": data.rows, "user_id": req.session.user_id};
+      // res.render("listingsid", templateVars);
+      // res.json(templateVars);
+      // console.log("Abcdefghij:", data);
+      // const users = data.rows;
+      res.redirect(`/listings/${req.params.listingid}`);
+    })
+    .catch(err => {
+      res.status(500);
+      console.log("ERROR in listings.js:", err);
+      //   .json({ error: err.message });
+    });
+  });
+
+  //******************************** LISTING DELETE ******************************
+
   return router;
 };
