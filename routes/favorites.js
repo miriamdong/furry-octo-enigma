@@ -38,10 +38,11 @@ module.exports = (db) => {
     ($1, $2, NOW())`;
     db.query(queryString, queryParams)
       .then(data => {
-        console.log("*****************************************************Abcdefghij:", data);
+        // console.log("*****************************************************Abcdefghij:", data);
         // res.done();
         // const users = data.rows;
         // res.json({ users });
+        res.redirect("/listings")
       })
       .catch(err => {
         res.status(500);
