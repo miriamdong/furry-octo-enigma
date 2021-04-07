@@ -19,6 +19,7 @@ const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
 
+
 const users = {};
 
 io.on('connection', socket => {
@@ -54,6 +55,8 @@ db.connect();
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
 
+
+// View engine setup
 app.set("view engine", "ejs");
 app.use(express.urlencoded({
   extended: true
@@ -64,6 +67,8 @@ app.use("/styles", sass({
   debug: true,
   outputStyle: 'expanded'
 }));
+
+// Static folder
 app.use(express.static("public"));
 app.use(cookieSession({
   name: 'session',
