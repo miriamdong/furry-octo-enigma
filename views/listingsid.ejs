@@ -7,10 +7,31 @@
 
   <body>
     <%- include('partials/_header') %>
-    <h1>This is a page with specific listing info</h1>
-    <p> Text here
-      <%- JSON.stringify(listing) %>
-    </p>
+    <h1><%- listing[0]['title']%></h1>
+    <img src="<%=listing[0]['image_url'] %>" />
+    <% if (listing[0]['active']) { %>
+      <p> IN STOCK </p>
+    <% } else { %>
+      <p> SOLD OUT</p>
+      <% } %>
+    <p>$<%- listing[0]['price'] %>.00</p>
+    <p><%- listing[0]['description'] %></p>
+    <p>Date Posted: <%- listing[0]['created_at'] %></p>
+    <div class="action-buttons">
+      <form method="GET" action="/messages/<%- listing[0]['seller_id']%>">
+        <button type="submit">
+          <i class="fas fa-comments"></i>
+          Message Seller
+        </button>
+      </form>
+      <form method="POST" action="/favorites/<%- listing[0]['id']%>">
+        <button type="submit">
+          <i class="fas fa-heart"></i>
+          Add to Favourites
+        </button>
+      </form>
+    </div>
+
   </body>
 
 </html>
