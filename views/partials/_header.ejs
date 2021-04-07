@@ -7,8 +7,8 @@
           <span id="site-name"> Media Buy & Sell</span>
         </a>
       </div>
-    <% if (user_id) { %>
       <div class="login-logout">
+    <% if (user_id) { %>
       <form method="POST" action="/logout" >
         <label> Logged in as: <%= user_id %> </label>
         <button type="submit">Logout</button>
@@ -26,13 +26,22 @@
     <div class="bottom-nav">
       <section class="left-nav">
         <a href="/listings"> Shop All Products</a>
-        <a href="/"> Featured</a>
+        <!-- <a href="/"> Featured</a> -->
         <!-- <a href=#> My Listings </a> -->
       </section>
       <section class="right-nav">
-        <a href="/favorites"> Favourites</a>
-        <a href="/messages"> Messages</a>
-        <a href="/listings/:listingid"> Create Listing</a>
+        <a href="/favorites">
+          <i class="fas fa-heart"></i>
+          Favourites
+        </a>
+        <a href="/messages">
+          <i class="fas fa-comments"></i>
+          Messages
+        </a>
+        <a href="/listings/:listingid">
+          <i class="far fa-plus-square"></i>
+          Create Listing
+        </a>
       </section>
     </div>
   </nav>
