@@ -83,6 +83,10 @@ app.use(cookieSession({
 const listings = require("./routes/listings");
 app.use("/listings", listings(db));
 
+const newlisting = require("./routes/newlisting");
+app.use("/newlisting", newlisting(db));
+
+
 // const listingsId = require("./routes/listingsid");
 // app.use("/listings/:listingid", listingsId(db, req.params.id));
 
