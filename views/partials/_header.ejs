@@ -30,7 +30,7 @@
         <!-- <a href=#> My Listings </a> -->
       </section>
       <section class="right-nav">
-        <% if (user_id) { %>
+        <% if (user_id === "admin") { %>
           <a href="/listings/:listingid">
             <i class="far fa-plus-square"></i>
             Create Listing
@@ -43,7 +43,16 @@
             <i class="fas fa-comments"></i>
             Messages
           </a>
-        <% } %>
+        <% } else if (user_id) {%>
+          <a href="/favorites">
+            <i class="fas fa-heart"></i>
+            Favourites
+          </a>
+          <a href="/messages">
+            <i class="fas fa-comments"></i>
+            Messages
+          </a>
+        <% }  %>
       </section>
     </div>
   </nav>
