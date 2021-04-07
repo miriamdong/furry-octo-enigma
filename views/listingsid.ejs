@@ -26,16 +26,15 @@
     <p>$<%- listing[0]['price'] %>.00</p>
     <p><%- listing[0]['description'] %></p>
     <p>Date Posted:
+      <% const readableDate = new Date(listing[0]['created_at']).toLocaleDateString('en-gb'); %>
+      <%= readableDate %>
       <!-- <script>
         console.log(moment().format());
       </script> -->
-      <script>
+      <!-- <script>
         moment().format();
-      </script>
+      </script> -->
     </p>
-    <p>Date Posted: <script>
-      moment(listing[0]['created_at']).fromNow();
-    </script></p>
     <div class="action-buttons">
       <form method="GET" action="/messages/<%- listing[0]['seller_id']%>">
         <button type="submit">
