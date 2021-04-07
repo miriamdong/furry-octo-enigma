@@ -88,6 +88,7 @@ WHERE favorites.user_id = $1
 GROUP BY listings.id, products.id
 ORDER BY date_added
 LIMIT $2;
+
 `, [user_id, limit])
     .then(res => res.rows)
     .catch(err => console.error('query error', err.stack));
