@@ -7,10 +7,36 @@
 
   <body>
     <%- include('partials/_header') %>
-    <h1>This is a page containing all of a user's favorited items</h1>
+    <h1>Your Favourite Listings</h1>
 
-    <p>
-      <%- JSON.stringify(data) %>
-    </p>
+    <% for (let favorite in favorites) { %>
+      <div class="favorites-container">
+        <section>
+        <img src="<%=favorites[favorite]['image_url'] %>" />
+        <h4><%- favorites[favorite]['title'] %></h4>
+        <p>$<%- favorites[favorite]['price'] %>.00</p>
+        </section>
+      </div>
+      <div class="action-buttons">
+        <form method="GET" action="/listing/<%- favorites[favorite]['listingid']%>">
+          <button type="submit">
+            <i class="far fa-eye"></i>
+            View More
+          </button>
+        </form>
+        <form method="GET" action="/messages/<%- favorites[favorite]['seller_id']%>">
+          <button type="submit">
+            <i class="fas fa-comments"></i>
+            Message Seller
+          </button>
+        </form>
+        <form method="POST" action="/favorites/<%- favorites[favorite]['id']%>/delete">
+          <button type="submit">
+            <i class="far fa-heart"></i>
+            Unfavourite
+          </button>
+        </form>
+      </div>
+      <% } %>
   </body>
 </html>

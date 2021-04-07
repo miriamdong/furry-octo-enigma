@@ -18,7 +18,7 @@ module.exports = (db) => {
     LIMIT 10;`)
     .then(data => {
       console.log("****************************************************POTATO:", data);
-      const templateVars = {"user_id": req.session.user_id, "data": data}; //"listing": data.rows,
+      const templateVars = {"user_id": req.session.user_id, "favorites": data.rows}; //"listing": data.rows,
       res.render("favorites", templateVars);
       // const users = data.rows;
       // res.json({ data.rows });
