@@ -6,22 +6,19 @@ module.exports = (db) => {
     // res.json({hello: "how are you"})
 
     db.query(`
-    SELECT listings.*, products.*, artists.*
+    SELECT favorites.date_added, users.name, listings.title, favorites.user_id
     FROM favorites
-    JOIN listings ON favorites.listing_id = listings.id
-    JOIN listingItems ON listings.id = favorites.listing_id
-    JOIN products ON product_id = products.id
-    JOIN artists ON artist_id = artists.id
+    JOIN users ON favorites.user_id = users.id
+    JOIN listings ON listings.id = favorites.listing_id
     WHERE favorites.user_id = 1
-    GROUP BY listings.id, products.id, artists.id, favorites.date_added
-    ORDER BY date_added
-    LIMIT 10;`)
+    GROUP BY favorites.user_id, users.name, favorites.listing_id, favorites.date_added, listings.title
+    ORDER BY favorites.date_added;`)
     .then(data => {
       console.log("****************************************************POTATO:", data);
       const templateVars = {"user_id": req.session.user_id, "favorites": data.rows}; //"listing": data.rows,
       res.render("favorites", templateVars);
       // const users = data.rows;
-      // res.json({ data.rows });
+      // res.json({ data });
     })
     .catch(err => {
       res.status(500);
@@ -39,6 +36,7 @@ module.exports = (db) => {
     db.query( queryString, queryParams)
     .then(data => {
       console.log("*****************************************************Abcdefghij:", data);
+      // res.done();
       // const users = data.rows;
       // res.json({ users });
     })
