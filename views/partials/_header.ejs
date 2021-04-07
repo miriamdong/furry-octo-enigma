@@ -30,18 +30,20 @@
         <!-- <a href=#> My Listings </a> -->
       </section>
       <section class="right-nav">
-        <a href="/favorites">
-          <i class="fas fa-heart"></i>
-          Favourites
-        </a>
-        <a href="/messages">
-          <i class="fas fa-comments"></i>
-          Messages
-        </a>
-        <a href="/listings/:listingid">
-          <i class="far fa-plus-square"></i>
-          Create Listing
-        </a>
+        <% if (user_id) { %>
+          <a href="/listings/:listingid">
+            <i class="far fa-plus-square"></i>
+            Create Listing
+          </a>
+          <a href="/favorites">
+            <i class="fas fa-heart"></i>
+            Favourites
+          </a>
+          <a href="/messages">
+            <i class="fas fa-comments"></i>
+            Messages
+          </a>
+        <% } %>
       </section>
     </div>
   </nav>
