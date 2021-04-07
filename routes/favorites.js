@@ -16,9 +16,9 @@ module.exports = (db) => {
     .then(data => {
       console.log("****************************************************POTATO:", data);
       const templateVars = {"user_id": req.session.user_id, "favorites": data.rows}; //"listing": data.rows,
-      // res.render("favorites", templateVars);
+      res.render("favorites", templateVars);
       // const users = data.rows;
-      res.json({ data });
+      // res.json({ data });
     })
     .catch(err => {
       res.status(500);
