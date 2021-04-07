@@ -1,15 +1,15 @@
 // See: https://sass-lang.com/
 
 nav {
-  display: flex;
-  flex-direction: column;
+  // display: none;
+  // flex-direction: column;
   width: 100%;
   height: 20vh;
-  background-color: #3aafa9;
   font-family: "Oswald", sans-serif;
   color: white;
   position: fixed;
   top: 0;
+  left: 0;
   z-index: 1;
   // border: black solid 5px;
 
@@ -20,6 +20,7 @@ nav {
   .topbar {
     flex-direction: row ;
     justify-content: space-between;
+    background-color: #3aafa9;
     // border: solid blueviolet 5px;
   }
 
@@ -50,6 +51,9 @@ nav {
 
 body {
   background-color: #EEE;
+  padding-top: 20vh;
+  // display: flex;
+  // justify-content: center;
 
   h1 {
     color: #244751;
@@ -76,3 +80,76 @@ body {
   border: grey solid 5px;
   border-radius: 20px;
 }
+
+// Messages Styling
+#chat {
+  // border: green solid 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // height: 100vh;
+  margin-top: 20px;
+
+  h1 {
+    // border: black 2px solid;
+  }
+
+  .messages-window {
+    // border: orange solid 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+  }
+
+  .messaging {
+    // border: salmon solid 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    align-items: center;
+  }
+
+  #message-container {
+    width: 80%;
+    max-width: 1200px;
+    // border: red solid 5px;
+  }
+
+  #message-container div {
+    background-color: #CCC;
+    border-radius: 20px;
+    margin: 20px;
+    padding: 5px;
+
+  }
+
+  #message-container div:nth-child(2n) {
+    background-color: #FFF;
+  }
+
+  #send-container {
+    // position: fixed;
+    // padding-bottom: 30px;
+    // bottom: 0;
+    // background-color: white;
+    max-width: 1200px;
+    width: 80%;
+    display: flex;
+    // border: blue solid 5px;
+    // position: absolute;
+    padding: 5px;
+
+  }
+
+  #message-input {
+    flex-grow: 1;
+    height: 2em;
+    padding: 5px;
+  }
+
+
+}
+
