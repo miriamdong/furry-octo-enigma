@@ -29,7 +29,7 @@
           <p>$<%- data[featured]['price'] %>.00</p>
         </section>
         <div class="action-buttons">
-          <form method="GET" action="/listing/<%- data[featured]['listingid']%>">
+          <form method="GET" action="/listings/<%- data[featured]['id']%>">
             <button type="submit">
               <i class="far fa-eye"></i>
               View More
@@ -37,6 +37,7 @@
           </form>
       </div>
     <% } %>
+    <!-- <%- JSON.stringify(data) %> -->
   </body>
 
 </html>
