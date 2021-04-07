@@ -6,7 +6,7 @@ $(() => {
     for (user of users) {
       $("<div>").text(user.name).appendTo($("body"));
     }
-  });;
+  });
 
 
   const socket = io('http://localhost:8080');
@@ -23,6 +23,8 @@ $(() => {
   const name = prompt('What is your name?');
   appendMessage('You joined');
   socket.emit('new-user', name);
+
+  let usermsg = {};
 
   socket.on('chat-message', data => {
     appendMessage(`${ data.name }: ${ data.message }`);
@@ -49,13 +51,31 @@ $(() => {
   });
 
   function appendMessage(message) {
-    const messageElement = document.createElement('div')
-    messageElement.innerText = message
-    messageContainer.append(messageElement)
+    const messageElement = document.createElement('div');
+    messageElement.innerText = message;
+    messageContainer.append(messageElement);
   }
 
 
+  $('.faveButton').click(function(e) {
+    e.preventDefault();
+    $.ajax({
+        url: '/listings/',
+        type: 'POST',
+        data: {
+          'submit': true
+        }
+      })
+      .done((user_id) => {
+        $(this).toggleClass('fave');
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
 
+  });
 
-
+  $(".faveButton").click(function() {
+    $(this).css("color", "red");
+  });
 });

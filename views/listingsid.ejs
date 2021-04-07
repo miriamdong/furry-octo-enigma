@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <title>Media Buy & Sell - Listing</title>
     <%- include('partials/_head') %>
@@ -7,6 +8,7 @@
     <!-- <script src="javascript/libraries/moment.js"></script> -->
     <script>
       const datePosted = moment(listing[0]['created_at']).fromNow();
+
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
       integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
@@ -19,10 +21,10 @@
     <h1><%- listing[0]['title']%></h1>
     <img src="<%=listing[0]['image_url'] %>" />
     <% if (listing[0]['active']) { %>
-      <p> IN STOCK </p>
+    <p> IN STOCK </p>
     <% } else { %>
-      <p> SOLD OUT</p>
-      <% } %>
+    <p> SOLD OUT</p>
+    <% } %>
     <p>$<%- listing[0]['price'] %>.00</p>
     <p><%- listing[0]['description'] %></p>
     <p>Date Posted:
@@ -31,11 +33,14 @@
       </script> -->
       <script>
         moment().format();
+
       </script>
     </p>
     <p>Date Posted: <script>
-      moment(listing[0]['created_at']).fromNow();
-    </script></p>
+        moment(listing[0]['created_at']).fromNow();
+
+      </script>
+    </p>
     <div class="action-buttons">
       <form method="GET" action="/messages/<%- listing[0]['seller_id']%>">
         <button type="submit">
@@ -43,8 +48,8 @@
           Message Seller
         </button>
       </form>
-      <form method="POST" action="/favorites/<%- listing[0]['id']%>">
-        <button type="submit">
+      <form class="fave" method="POST" action="/favorites/<%- listing[0]['id']%>">
+        <button id='fave' type="submit">
           <i class="fas fa-heart"></i>
           Add to Favourites
         </button>
