@@ -91,7 +91,6 @@ body {
   padding-top: 15vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
-
   // justify-content: center;
   place-items: center;
 
@@ -110,7 +109,13 @@ body {
     font-family: "Karla", sans-serif;
   }
 
-
+  img {
+    object-fit: cover;
+    width: 80%;
+    height: auto;
+    cursor: pointer;
+    place-items: center;
+  }
 
 
   // Listings Styling
@@ -122,6 +127,18 @@ body {
     border-radius: 20px;
   }
 
+
+  div.img-container {
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 15%;
+    margin: 5px 0 5px 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
 
   .listing-container .img-container {
     grid-column: 1/2;
@@ -135,7 +152,7 @@ body {
     align-items: center;
   }
 
-  img {
+  .img-container img {
     object-fit: cover;
     min-width: 100%;
     min-height: 100%;
@@ -156,7 +173,6 @@ body {
     grid-template-columns: 50% 25% 25%;
     place-items: center;
 
-
   }
 
   div.right-side {
@@ -169,6 +185,24 @@ body {
     flex-direction: row;
 
   }
+
+  .featured-container {
+    height: auto;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+  }
+
+
+  .featured-container img {
+    width: 300px;
+    height: 300px;
+    align-items: center;
+    place-items: center;
+  }
+
+
 
   .fave {
     background: red;
