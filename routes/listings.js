@@ -24,9 +24,27 @@ module.exports = (db) => {
 
   //******************************** LISTING ******************************
   router.get("/", (req, res) => {
-    // console.log(`Potato`, req.session.user_id);
-    // // res.json({hello: "how are you"})
-    db.query(`SELECT * FROM listings;`)
+    console.log(`************************************Potato`, req.query);
+    // res.json({hello: "how are you"})
+    let queryString = `SELECT * FROM listings WHERE TRUE `;
+    const queryParams = []
+
+    if (req.query.min > 0) {
+      queryParams.push(req.query.min);
+      queryString += `AND listings.price > $${queryParams.length} `;
+      // console.log("**********************************rutabaga")
+    }
+
+    if (req.query.max > 0) {
+      queryParams.push(req.query.max);
+      queryString += `AND listings.price < $${queryParams.length} `;
+      // console.log("**********************************kumquat")
+    }
+
+
+    queryString += `;`;
+
+    db.query( queryString, queryParams)
     .then(data => {
       const templateVars = {"listings": data.rows, "user_id": req.session.user_id};
       res.render("listings", templateVars);
