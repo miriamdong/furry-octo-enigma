@@ -416,6 +416,7 @@ body {
   }
 }
 
+<<<<<<< HEAD
 
 footer {
   display: flex;
@@ -426,4 +427,32 @@ footer {
 #site_footer_list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+=======
+// Listing ID page
+
+#listing-id-page {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+
+  p {
+    font-family: "Karla", sans-serif;
+    font-size: larger;
+  }
+  img {
+    margin-top: 20px;
+    width: 540px;
+    height: auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  .listing-info {
+    width: 60%;
+    padding: 5em;
+  }
+
+  button {
+    margin-bottom: 10px;
+  }
+>>>>>>> 5fe66896d7bf8efe4a7e2dcd8eca5f378fc1e570
 }

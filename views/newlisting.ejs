@@ -4,13 +4,17 @@
   <head>
     <title>Media Buy & Sell - Listings</title>
     <%- include('partials/_head') %>
+    <script type="text/javascript" src="/scripts/validate.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
   </head>
 
   <body id="new-listing-page">
     <%- include('partials/_header') %>
     <div class="new-listing-form">
       <h2>Create New Listing</h3>
-      <form method="POST" action="/listings">
+        <form method="POST" action="/listings" name = "myForm" onsubmit = "return(validate())">
+      <!-- <form method="POST" action="/listings"> -->
         <label>Title of Listing:</label><br>
         <textarea name="listingtitle" placeholder="Title of Listing"></textarea><br>
         <label>Image:</label><br>
