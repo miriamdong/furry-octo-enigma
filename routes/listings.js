@@ -5,11 +5,14 @@ module.exports = (db) => {
   //******************************** LISTINGID ******************************
   router.get("/:listingid", (req, res) => {
     // console.log("POTATO:", req.session.user_id)
-    // res.json({hello: "how are you"})
     db.query(`SELECT * FROM listings WHERE id = ${req.params.listingid};`)
     .then(data => {
       const templateVars = {"listing": data.rows, "user_id": req.session.user_id};
-      res.render("listingsid", templateVars);
+      if (data.rows.length > 0) {
+        return res.render("listingsid", templateVars);
+        // return res.json(data.rows)
+      }
+      return res.redirect("/error");
       // res.json(templateVars);
       // console.log("Abcdefghij:", data);
       // const users = data.rows;

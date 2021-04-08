@@ -119,6 +119,11 @@ app.post('/logout', (req, res) => {
   // console.log("POTATO:", req.session.user_id);
 });
 
+app.get('*', function(req, res){
+  // res.sendStatus(404);
+  res.redirect('/error');
+});
+
 server.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
