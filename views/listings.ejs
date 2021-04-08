@@ -9,10 +9,10 @@
   <body>
     <%- include('partials/_header') %>
     <h1>Browse Listings</h1>
-    <form class="price-filter" method="POST" action="/#">
+    <form class="price-filter" method="GET" action="/listings">
       <label> Price Range:</label>
-      <textarea name="text" placeholder="Minimum Price"></textarea>
-      <textarea name="text" placeholder="Maximum Price"></textarea>
+      <textarea name="min" placeholder="Minimum Price"></textarea>
+      <textarea name="max" placeholder="Maximum Price"></textarea>
       <button type="submit">Filter</button>
     </form>
     <section>
