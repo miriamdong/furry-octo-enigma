@@ -413,3 +413,31 @@ body {
     }
   }
 }
+
+// Listing ID page
+
+#listing-id-page {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+
+  p {
+    font-family: "Karla", sans-serif;
+    font-size: larger;
+  }
+  img {
+    margin-top: 20px;
+    width: 540px;
+    height: auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  .listing-info {
+    width: 60%;
+    padding: 5em;
+  }
+
+  button {
+    margin-bottom: 10px;
+  }
+}
