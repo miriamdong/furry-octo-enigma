@@ -56,7 +56,30 @@ $(() => {
   });
 
 
+  // $('#faveButton').click(function(e) {
+  //   e.preventDefault();
+    // $.ajax({
+    //     url: '/listings/',
+    //     type: 'POST',
+    //     data: {
+    //       'submit': true
+    //     }
+    //   })
+    //   .done((user_id) => {
+    //     $(this).addClass('fave');
+    //   })
+    //   .catch((error) => {
+    //     console.log("error", error);
+    //   });
+    // }
 
+
+
+  $("#faveButton").click(function() {
+    $("button").css("color", "red");
+  });
+
+<<<<<<< HEAD
   function appendMessage(message) {
     const messageElement = document.createElement('div');
     messageElement.innerText = message;
@@ -92,4 +115,9 @@ $(() => {
     $(this).toggleClass("active");
   });
 
+=======
+//   $('#Button').click(function(){
+//     $(this).addClass("active");
+// });
+>>>>>>> 33802b18c021af4493bf2cdda5346822bd2fd4ca
 });

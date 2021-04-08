@@ -5,6 +5,9 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
+    if (req.session.user_id !== "admin") {
+      return res.redirect("/");
+    }
     const templateVars = {"user_id": req.session.user_id}
     res.render("newlisting", templateVars);
   });

@@ -13,7 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
       integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
       crossorigin="anonymous">
-    </script>
+    </script> -->
   </head>
 
   <body>
@@ -28,16 +28,24 @@
     <p>$<%- listing[0]['price'] %>.00</p>
     <p><%- listing[0]['description'] %></p>
     <p>Date Posted:
+      <% const readableDate = new Date(listing[0]['created_at']).toLocaleDateString('en-gb'); %>
+      <%= readableDate %>
       <!-- <script>
         console.log(moment().format());
       </script> -->
-      <script>
+      <!-- <script>
         moment().format();
+<<<<<<< HEAD
 
       </script>
     </p>
     <p>Date Posted:
     </p>
+=======
+      </script> -->
+    </p>
+    <% if (user_id === "user") { %>
+>>>>>>> 33802b18c021af4493bf2cdda5346822bd2fd4ca
     <div class="action-buttons">
       <form method="GET" action="/messages/<%- listing[0]['seller_id']%>">
         <button type="submit">
@@ -45,12 +53,33 @@
           Message Seller
         </button>
       </form>
+<<<<<<< HEAD
       <form class="fave" method="POST" action="/favorites/<%- listing[0]['id']%>">
         <button id='fave' type="submit">
+=======
+      <form  method="POST" action="/favorites/<%- listing[0]['id']%>">
+        <button id="faveButton" type="submit">
+>>>>>>> 33802b18c021af4493bf2cdda5346822bd2fd4ca
           <i class="fas fa-heart"></i>
           Add to Favourites
         </button>
       </form>
+      <% } else if (user_id === "admin") { %>
+      <section class="admin-actions">
+          <form  method="POST" action="/listings/<%- listing[0]['id']%>/delete">
+            <button type="submit">
+              <i class="fas fa-trash-alt"></i>
+              Delete Listing
+            </button>
+          </form>
+          <form  method="POST" action="/listings/<%- listing[0]['id']%>/update">
+            <button type="submit">
+              <i class="fas fa-ban"></i>
+              Mark as Sold
+            </button>
+          </form>
+        <% } %>
+      </section>
     </div>
 
   </body>

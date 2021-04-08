@@ -2,9 +2,14 @@ const express = require('express');
 const router = express.Router();
 
 module.exports = (db) => {
+
+  //get favorites page
   router.get("/", (req, res) => {
     // res.json({hello: "how are you"})
-
+    // res.json(req.session.user_id);
+    if (!req.session.user_id) {
+      return res.redirect("/");
+    }
     db.query(`
     SELECT favorites.date_added, users.name, listings.*, favorites.user_id
     FROM favorites
@@ -31,23 +36,53 @@ module.exports = (db) => {
     console.log("success", db);
   });
 
+  //add new listing to favorites list
   router.post("/:listingid", (req, res) => {
+    if (!req.session.user_id) {
+      // console.log("is this printing");
+      return res.redirect("/");
+    }
     const queryParams = ["1", req.params.listingid]; //"1" can easily be swapped out for a user cookie down the road
     const queryString = `INSERT INTO favorites (user_id, listing_id, date_added)
     VALUES
     ($1, $2, NOW())`;
     db.query(queryString, queryParams)
       .then(data => {
-        console.log("*****************************************************Abcdefghij:", data);
+        // console.log("*****************************************************Abcdefghij:", data);
         // res.done();
         // const users = data.rows;
         // res.json({ users });
+        res.redirect("/listings")
       })
       .catch(err => {
         res.status(500);
         console.log("ERROR in favorites.js:", err);
         //   .json({ error: err.message });
       });
+  });
+
+  //remove listing from favorites
+  router.post("/:listingid/delete", (req, res) => {
+    if (!req.session.user_id) {
+      return res.redirect("/");
+    }
+    // res.json({hello: "how are you"});
+    const queryParams = [req.params.listingid]; //"1" can easily be swapped out for a user cookie down the road
+    const queryString = `DELETE FROM favorites WHERE listing_id = $1 `;
+    db.query(queryString, queryParams)
+      .then(data => {
+        // console.log("*****************************************************Abcdefghij:", data);
+        // res.done();
+        // const users = data.rows;
+        // res.json({ users });
+        res.redirect("/favorites");
+      })
+      .catch(err => {
+        res.status(500);
+        console.log("ERROR in favorites.js:", err);
+        //   .json({ error: err.message });
+      });
+
   });
   return router;
 };
