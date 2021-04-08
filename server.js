@@ -96,8 +96,12 @@ app.use("/favorites", favorites(db));
 const messages = require("./routes/messages");
 app.use("/messages", messages(db));
 
+const error = require("./routes/error");
+app.use("/error", error(db));
+
 const index = require("./routes/index");
 app.use("/", index(db));
+
 
 //  ******************** LOG IN STUFF *****************************
 
