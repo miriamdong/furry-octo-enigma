@@ -110,19 +110,17 @@ body {
     font-family: "Karla", sans-serif;
   }
 
-
-
-
   // Listings Styling
 
   .price-filter {
     display: flex;
     align-items: center;
-    justify-content: space-around;
     font-family: "Karla", sans-serif;
 
     textarea {
       margin: 10px;
+      border-radius: 3px;
+      border: none;
     }
     button {
       background-color: #90d8d4;
