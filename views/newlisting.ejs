@@ -6,10 +6,10 @@
     <%- include('partials/_head') %>
   </head>
 
-  <body>
+  <body id="new-listing-page">
     <%- include('partials/_header') %>
     <div class="new-listing-form">
-      <h3>Create New Listing</h3>
+      <h2>Create New Listing</h3>
       <form method="POST" action="/listings">
         <label>Title of Listing:</label><br>
         <textarea name="listingtitle" placeholder="Title of Listing"></textarea><br>
@@ -38,7 +38,10 @@
         <input type="radio" id="featuredN" name="featured" value="false">
         <label for="featuredN">No</label><br>
 
-        <input type="submit" value="Submit">
+        <button type="submit">
+          <i class="far fa-plus-square"></i>
+          Create New Listing
+        </button>
       </form>
     </div>
   </body>

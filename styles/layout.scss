@@ -360,4 +360,41 @@ body {
   }
 }
 
+// New Listings Styling
 
+#new-listing-page {
+  display: flex;
+  justify-content: center;
+
+  .new-listing-form {
+    font-family: Karla, sans-serif;
+    border: grey solid 3px;
+    border-radius: 20px;
+    margin: 15px;
+    box-shadow: 5px 5px #8d92bb;
+    padding: 30px;
+
+    h2 {
+      font-family: "Oswald", sans-serif;
+      font-weight: 400;
+    }
+    textarea {
+      margin: 10px;
+      border-radius: 3px;
+      border: none;
+      width: 90%;
+    }
+
+    button {
+      font-family: "Karla", sans-serif;
+      background-color: #90d8d4;
+      border-radius: 2px;
+      padding: 0.5em 0.75em;
+      border: none;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      color: white;
+
+    }
+  }
+}
