@@ -77,7 +77,7 @@ $(() => {
 
 
   $("#faveButton").click(function() {
-    $("button").css("color", "red");
+    $(this.children).css("color", "red");
   });
 
   // eslint-disable-next-line func-style
@@ -108,13 +108,13 @@ $(() => {
   // });
 
   // $("form").click(function() {
-  //   $('.fave').css("color", "red");
+  //   $('#faveButton').css("color", "red");
   // });
 
 
-  $("#fave").click(function(e) {
-    console.log('here');
-    $(this).toggleClass("active");
-  });
+  // $("#fave").click(function() {
+  //   console.log('here');
+  //   $(this).toggleClass("active");
+  // });
 
 });
