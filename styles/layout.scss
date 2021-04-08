@@ -155,7 +155,8 @@ body {
   .listing-container {
     display: grid;
     grid-template-columns: 85% 15%;
-    width: 100%;
+    width: 80%;
+    place-items: center;
     border: grey solid 3px;
     border-radius: 20px;
     margin: 15px;
@@ -427,10 +428,11 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
+
 // Listing ID page
 
 #listing-id-page {
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: center;
 
@@ -438,6 +440,7 @@ footer {
     font-family: "Karla", sans-serif;
     font-size: larger;
   }
+
   img {
     margin-top: 20px;
     width: 540px;

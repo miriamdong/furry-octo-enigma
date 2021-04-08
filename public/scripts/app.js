@@ -14,7 +14,7 @@ $(() => {
   console.log(socket);
 
   socket.on('chat-message', data => {
-    console.log(data);
+    // console.log(data);
   });
 
 
@@ -29,7 +29,6 @@ $(() => {
 
 
   socket.on('chat-message', data => {
-    console.log(data);
     appendMessage(`${ data.name }: ${ data.message }`);
   });
 
@@ -39,13 +38,13 @@ $(() => {
 
 
 
-  socket.on('user-connected', name => {
-    appendMessage(`${ name } connected`);
-  });
+  // socket.on('user-connected', name => {
+  //   appendMessage(`${ name } connected`);
+  // });
 
-  socket.on('user-disconnected', name => {
-    appendMessage(`${ name } disconnected`);
-  });
+  // socket.on('user-disconnected', name => {
+  //   appendMessage(`${ name } disconnected`);
+  // });
 
   messageForm.on('submit', e => {
     e.preventDefault();
