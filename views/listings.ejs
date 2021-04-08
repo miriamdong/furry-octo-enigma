@@ -22,13 +22,14 @@
           <section>
             <div class='img-container'>
               <img src="<%=listings[listing]['image_url'] %>" /></div>
-            <h3><%- listings[listing]['title'] %></h3>
-            <p>$<%- listings[listing]['price'] %>.00</p>
+            <div>
+              <h3><%- listings[listing]['title'] %></h3>
+              <!-- Stephanie trying to help make description more obvious -->
+              <%- listings[listing]['description']%>
+            </div>
           </section>
-          <p>
-            <!-- Stephanie trying to help make description more obvious -->
-            <%- listings[listing]['description']%>
-          </p>
+
+          <p>$<%- listings[listing]['price'] %>.00</p>
           <div class="action-buttons">
             <form method="GET" action="/listings/<%- listings[listing]['id']%>">
               <button type="submit">

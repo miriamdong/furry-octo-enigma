@@ -117,6 +117,8 @@ body {
 
   h3 {
     font-family: "Karla", sans-serif;
+    display: flex;
+    justify-content: flex-start;
   }
 
   // Listings Styling
@@ -159,6 +161,7 @@ body {
     margin: 15px;
     padding: 10px;
     box-shadow: 5px 5px #8d92bb;
+    grid-gap: 1em;
 
     .img-container {
       div.img-container {
@@ -214,7 +217,7 @@ body {
 
     section {
       display: grid;
-      grid-template-columns: 50% 25% 25%;
+      grid-template-columns: 50% 50%;
       place-items: center;
     }
 
@@ -233,6 +236,11 @@ body {
       border: none;
       margin: 3px;
       color: white;
+    }
+
+    p {
+      display: flex;
+      place-items: center;
     }
   }
 
