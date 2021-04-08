@@ -114,16 +114,36 @@ body {
 
 
   // Listings Styling
+
+  .price-filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: "Karla", sans-serif;
+
+    textarea {
+      margin: 10px;
+    }
+    button {
+      background-color: #90d8d4;
+      border-radius: 2px;
+      padding: 0.5em 0.75em;
+      border: none;
+      margin: 3px;
+      color: white;
+    }
+  }
   .listing-container {
     display: grid;
     grid-template-columns: 85% 15%;
     width: 100%;
-    border: grey solid 5px;
+    border: grey solid 3px;
     border-radius: 20px;
-  }
+    margin: 15px;
+    padding: 10px;
+    box-shadow: 5px 5px #8d92bb;
 
-
-  .listing-container .img-container {
+    .img-container {
     grid-column: 1/2;
     width: 300px;
     height: 300px;
@@ -133,42 +153,52 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+    }
 
-  img {
-    object-fit: cover;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    cursor: pointer;
-    align-items: center;
-    margin-left: auto;
-  }
+    img {
+      object-fit: cover;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      cursor: pointer;
+      align-items: center;
+      margin-left: auto;
+    }
 
-  img:hover {
-    background: #e1f5ff;
-  }
+    img:hover {
+      background: #e1f5ff;
+    }
 
-
-  .listing-container section {
-    display: grid;
+    section {
+      display: grid;
     grid-template-columns: 50% 25% 25%;
     place-items: center;
+    }
 
+    .action-buttons {
+    grid-column: 1/4;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    }
 
+    button {
+      font-family: "Karla", sans-serif;
+      background-color: #90d8d4;
+      border-radius: 2px;
+      padding: 0.5em 0.75em;
+      border: none;
+      margin: 3px;
+      color: white;
+    }
   }
+
 
   div.right-side {
     grid-column: 2/2;
   }
 
-  .listing-container .action-buttons {
-    grid-column: 1/4;
-    display: flex;
-    flex-direction: row;
-
-  }
 
   .fave {
     background: red;
