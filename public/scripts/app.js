@@ -23,7 +23,7 @@ $(() => {
   const messageInput = $('#message-input');
 
   console.log('here!!!');
-  const name = prompt('What is your name?');
+  const name = $('#username');
   appendMessage('You joined');
   socket.emit('new-user', name);
 
@@ -58,20 +58,20 @@ $(() => {
 
   // $('#faveButton').click(function(e) {
   //   e.preventDefault();
-    // $.ajax({
-    //     url: '/listings/',
-    //     type: 'POST',
-    //     data: {
-    //       'submit': true
-    //     }
-    //   })
-    //   .done((user_id) => {
-    //     $(this).addClass('fave');
-    //   })
-    //   .catch((error) => {
-    //     console.log("error", error);
-    //   });
-    // }
+  // $.ajax({
+  //     url: '/listings/',
+  //     type: 'POST',
+  //     data: {
+  //       'submit': true
+  //     }
+  //   })
+  //   .done((user_id) => {
+  //     $(this).addClass('fave');
+  //   })
+  //   .catch((error) => {
+  //     console.log("error", error);
+  //   });
+  // }
 
 
 
@@ -79,7 +79,7 @@ $(() => {
     $("button").css("color", "red");
   });
 
-<<<<<<< HEAD
+  // eslint-disable-next-line func-style
   function appendMessage(message) {
     const messageElement = document.createElement('div');
     messageElement.innerText = message;
@@ -115,9 +115,4 @@ $(() => {
     $(this).toggleClass("active");
   });
 
-=======
-//   $('#Button').click(function(){
-//     $(this).addClass("active");
-// });
->>>>>>> 33802b18c021af4493bf2cdda5346822bd2fd4ca
 });
