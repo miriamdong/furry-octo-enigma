@@ -426,6 +426,7 @@ footer {
 #site_footer_list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 // Listing ID page
 
 #listing-id-page {
@@ -452,5 +453,4 @@ footer {
   button {
     margin-bottom: 10px;
   }
-}
 }
