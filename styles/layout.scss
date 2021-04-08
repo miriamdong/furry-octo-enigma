@@ -217,6 +217,29 @@ body {
     background: green;
   }
 
+  // Favourites Styling
+
+  .favorites-container {
+    display: grid;
+    grid-template-columns: 85% 15%;
+    width: 80%;
+    border: grey solid 3px;
+    border-radius: 20px;
+    margin: 15px;
+    padding: 10px;
+    box-shadow: 5px 5px #8d92bb;
+  }
+  .img-container {
+    grid-column: 1/2;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 15%;
+    margin: 5px 0 5px 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
 }
 // Messages Styling
 #chat {
@@ -287,4 +310,5 @@ body {
     padding: 5px;
   }
 }
+
 
