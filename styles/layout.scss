@@ -416,6 +416,36 @@ body {
       color: white;
 
     }
+
+    .file {
+      position: relative;
+    }
+
+    .file>input[type='file'] {
+      display: none
+    }
+
+    .file>label {
+      cursor: pointer;
+      outline: 0;
+      user-select: none;
+      color: rgb(117, 186, 209);
+    }
+
+
+    .file>label:active {
+      background-color: lightblue;
+    }
+
+    .file>label>i {
+      padding-right: 5px;
+    }
+
+    .file--upload>label:hover {
+      border-color: hsl(204, 86%, 53%);
+      background-color: hsl(204, 86%, 96%);
+    }
+
   }
 }
 
