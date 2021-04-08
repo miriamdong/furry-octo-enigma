@@ -89,8 +89,11 @@ nav {
 body {
   background-color: #EEE;
   padding-top: 15vh;
-  // display: flex;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
   // justify-content: center;
+  place-items: center;
 
   h1 {
     color: #244751;
@@ -106,97 +109,146 @@ body {
   h3 {
     font-family: "Karla", sans-serif;
   }
-}
-
-// Listings Styling
-.listing-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 80%;
-  border: grey solid 5px;
-  border-radius: 20px;
-}
-
-.fave {
-  background: red;
-  cursor: pointer
-}
-
-.fave .active {
-  background: green;
-}
 
 
-// Messages Styling
-#chat {
-  // border: green solid 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  // height: 100vh;
-  margin-top: 20px;
 
-  h1 {
-    // border: black 2px solid;
+
+  // Listings Styling
+  .listing-container {
+    display: grid;
+    grid-template-columns: 85% 15%;
+    width: 100%;
+    border: grey solid 5px;
+    border-radius: 20px;
   }
 
-  .messages-window {
-    // border: orange solid 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 80%;
-  }
 
-  .messaging {
-    // border: salmon solid 5px;
+  .listing-container .img-container {
+    grid-column: 1/2;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 15%;
+    margin: 5px 0 5px 7px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    padding: 20px;
     align-items: center;
   }
 
-  #message-container {
-    width: 80%;
-    max-width: 1200px;
-    // border: red solid 5px;
+  img {
+    object-fit: cover;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    align-items: center;
+    margin-left: auto;
   }
 
-  #message-container div {
-    background-color: #CCC;
-    border-radius: 20px;
-    margin: 20px;
-    padding: 5px;
+  img:hover {
+    background: #e1f5ff;
+  }
+
+
+  .listing-container section {
+    display: grid;
+    grid-template-columns: 50% 25% 25%;
+    place-items: center;
+
 
   }
 
-  #message-container div:nth-child(2n) {
-    background-color: #FFF;
+  div.right-side {
+    grid-column: 2/2;
   }
 
-  #send-container {
-    // position: fixed;
-    // padding-bottom: 30px;
-    // bottom: 0;
-    // background-color: white;
-    max-width: 1200px;
-    width: 80%;
+  .listing-container .action-buttons {
+    grid-column: 1/4;
     display: flex;
-    // border: blue solid 5px;
-    // position: absolute;
-    padding: 5px;
+    flex-direction: row;
 
   }
 
-  #message-input {
-    flex-grow: 1;
-    height: 2em;
-    padding: 5px;
+  .fave {
+    background: red;
+    cursor: pointer
+  }
+
+  .fave .active {
+    background: green;
   }
 
 
+  // Messages Styling
+  #chat {
+    // border: green solid 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // height: 100vh;
+    margin-top: 20px;
 
+    h1 {
+      // border: black 2px solid;
+    }
+
+    .messages-window {
+      // border: orange solid 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 80%;
+    }
+
+    .messaging {
+      // border: salmon solid 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+      align-items: center;
+    }
+
+    #message-container {
+      width: 80%;
+      max-width: 1200px;
+      // border: red solid 5px;
+    }
+
+    #message-container div {
+      background-color: #CCC;
+      border-radius: 20px;
+      margin: 20px;
+      padding: 5px;
+
+    }
+
+    #message-container div:nth-child(2n) {
+      background-color: #FFF;
+    }
+
+    #send-container {
+      // position: fixed;
+      // padding-bottom: 30px;
+      // bottom: 0;
+      // background-color: white;
+      max-width: 1200px;
+      width: 80%;
+      display: flex;
+      // border: blue solid 5px;
+      // position: absolute;
+      padding: 5px;
+
+    }
+
+    #message-input {
+      flex-grow: 1;
+      height: 2em;
+      padding: 5px;
+    }
+
+
+  }
 }
