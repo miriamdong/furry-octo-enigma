@@ -5,26 +5,26 @@
     <%- include('partials/_head') %>
   </head>
 
-  <body>
+  <body id="favourites-page">
     <%- include('partials/_header') %>
     <h1>Your Favourite Listings</h1>
 
     <% for (let favorite in favorites) { %>
       <div class="favorites-container">
-        <section>
-        <img src="<%=favorites[favorite]['image_url'] %>" />
-        <h4><%- favorites[favorite]['title'] %></h4>
-        <p>$<%- favorites[favorite]['price'] %>.00</p>
+        <img class='img-container' src="<%=favorites[favorite]['image_url'] %>" />
+        <div class="favorite-info">
+          <section>
+          <h4><%- favorites[favorite]['title'] %></h4>
+          <p>$<%- favorites[favorite]['price'] %>.00</p>
         </section>
-      </div>
-      <div class="action-buttons">
-        <form method="GET" action="/listing/<%- favorites[favorite]['listingid']%>">
-          <button type="submit">
-            <i class="far fa-eye"></i>
-            View More
-          </button>
-        </form>
-        <form method="GET" action="/messages/<%- favorites[favorite]['seller_id']%>">
+        <div class="action-buttons">
+          <form method="GET" action="/listing/<%- favorites[favorite]['listingid']%>">
+            <button type="submit">
+              <i class="far fa-eye"></i>
+               View More
+           </button>
+         </form>
+         <form method="GET" action="/messages/<%- favorites[favorite]['seller_id']%>">
           <button type="submit">
             <i class="fas fa-comments"></i>
             Message Seller
@@ -37,6 +37,8 @@
           </button>
         </form>
       </div>
+    </div>
+    </div>
       <% } %>
   </body>
 </html>
