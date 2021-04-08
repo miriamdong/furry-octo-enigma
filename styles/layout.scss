@@ -15,7 +15,7 @@ nav {
 
   .topbar {
     display: flex;
-    flex-direction: row ;
+    flex-direction: row;
     justify-content: space-between;
     background-color: #3aafa9;
     padding: 10px;
@@ -65,6 +65,7 @@ nav {
   button:hover {
     background-color: cadetblue;
   }
+
   .bottom-nav {
     display: flex;
     flex-direction: row;
@@ -82,6 +83,8 @@ nav {
     // border: solid pink 5px;
   }
 }
+
+
 
 body {
   background-color: #EEE;
@@ -114,6 +117,16 @@ body {
   border: grey solid 5px;
   border-radius: 20px;
 }
+
+.fave {
+  background: red;
+  cursor: pointer
+}
+
+.fave .active {
+  background: green;
+}
+
 
 // Messages Styling
 #chat {
@@ -185,5 +198,5 @@ body {
   }
 
 
-}
 
+}

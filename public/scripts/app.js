@@ -9,30 +9,35 @@ $(() => {
   });
 
 
+
   const socket = io('http://localhost:8080');
+  console.log(socket);
 
   socket.on('chat-message', data => {
     console.log(data);
   });
 
 
-  const messageContainer = document.getElementById('message-container');
-  const messageForm = document.getElementById('send-container');
-  const messageInput = document.getElementById('message-input');
+  const messageContainer = $('#message-container');
+  const messageForm = $('#send-container');
+  const messageInput = $('#message-input');
 
+  console.log('here!!!');
   const name = prompt('What is your name?');
   appendMessage('You joined');
   socket.emit('new-user', name);
 
-  let usermsg = {};
 
   socket.on('chat-message', data => {
+    console.log(data);
     appendMessage(`${ data.name }: ${ data.message }`);
   });
 
   socket.on('connect', data => {
-    console.log(data);
+    console.log('connected');
   });
+
+
 
   socket.on('user-connected', name => {
     appendMessage(`${ name } connected`);
@@ -42,13 +47,15 @@ $(() => {
     appendMessage(`${ name } disconnected`);
   });
 
-  messageForm.addEventListener('submit', e => {
+  messageForm.on('submit', e => {
     e.preventDefault();
-    const message = messageInput.value;
+    const message = messageInput.val();
     appendMessage(`You: ${ message }`);
     socket.emit('send-chat-message', message);
     messageInput.value = '';
   });
+
+
 
   function appendMessage(message) {
     const messageElement = document.createElement('div');
@@ -57,25 +64,32 @@ $(() => {
   }
 
 
-  $('.faveButton').click(function(e) {
-    e.preventDefault();
-    $.ajax({
-        url: '/listings/',
-        type: 'POST',
-        data: {
-          'submit': true
-        }
-      })
-      .done((user_id) => {
-        $(this).toggleClass('fave');
-      })
-      .catch((error) => {
-        console.log("error", error);
-      });
+  // $('.faveB').click(function(e) {
+  //   e.preventDefault();
+  //   $.ajax({
+  //       url: '/listings/',
+  //       type: 'POST',
+  //       data: {
+  //         'submit': true
+  //       }
+  //     })
+  //     .done((user_id) => {
+  //       $(this).toggleClass('fave');
+  //     })
+  //     .catch((error) => {
+  //       console.log("error", error);
+  //     });
 
+  // });
+
+  // $("form").click(function() {
+  //   $('.fave').css("color", "red");
+  // });
+
+
+  $(".fave").click(function(e) {
+    console.log('here');
+    $(this).toggleClass("active");
   });
 
-  $(".faveButton").click(function() {
-    $(this).css("color", "red");
-  });
 });

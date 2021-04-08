@@ -17,7 +17,7 @@ const sass = require("node-sass-middleware");
 const app = require('express')();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
-
+console.log('io: ', io);
 
 
 const users = {};
