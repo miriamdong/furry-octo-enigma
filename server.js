@@ -6,6 +6,7 @@ require('dotenv').config();
 // for tbl in `psql -qAt -c "select tablename from pg_tables where schemaname = 'public';" midterm` ;
 // do  psql -c "alter table \"$tbl\" owner to labber" midterm ; done
 // npm install pg@latest
+// curl -X POST -i localhost:8080/favorites/1/delete
 
 // Web server config
 const PORT = process.env.PORT || 8080;

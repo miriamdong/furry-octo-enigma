@@ -44,6 +44,9 @@ module.exports = (db) => {
 
   //******************************** LISTING POST ******************************
   router.post("/", (req, res) => {
+    if (req.session.user_id !== "admin") {
+      return res.redirect("/");
+    }
     console.log("********************************************************POTATO:", req.body)
     // res.json({hello: "how are you"})
 
@@ -71,6 +74,10 @@ module.exports = (db) => {
   //******************************** LISTING UPDATE ******************************
   //Change query from Select to Update, change active to false
   router.post("/:listingid/update", (req, res) => {
+    if (req.session.user_id !== "admin") {
+      return res.redirect("/");
+    }
+
     // res.json({hello: "how are you"})
     // console.log("POTATO:", req.session.user_id)
     const queryString = `
@@ -97,6 +104,9 @@ module.exports = (db) => {
 
   //******************************** LISTING DELETE ******************************
   router.post("/:listingid/delete", (req, res) => {
+    if (req.session.user_id !== "admin") {
+      return res.redirect("/");
+    }
     // res.json({hello: "how are you"})
     // console.log("POTATO:", req.session.user_id)
     const queryString = `
