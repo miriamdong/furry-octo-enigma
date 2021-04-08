@@ -18,13 +18,13 @@
           <p>$<%- favorites[favorite]['price'] %>.00</p>
         </section>
         <div class="action-buttons">
-          <form method="GET" action="/listings/<%- favorites[favorite]['listing_id']%>">
+          <form method="GET" action="/listings/<%- favorites[favorite]['id']%>">
             <button type="submit">
               <i class="far fa-eye"></i>
                View More
            </button>
          </form>
-         <form method="GET" action="/messages/<%- favorites[favorite]['seller_id']%>">
+         <form method="GET" action="/messages/">
           <button type="submit">
             <i class="fas fa-comments"></i>
             Message Seller

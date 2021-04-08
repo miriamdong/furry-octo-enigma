@@ -22,8 +22,8 @@ $(() => {
   const messageForm = $('#send-container');
   const messageInput = $('#message-input');
 
-  console.log('here!!!');
-  const name = "<%=currentUser.username%>";
+
+  const name = "admin";
   appendMessage('You joined');
   socket.emit('new-user', name);
 
@@ -83,6 +83,7 @@ $(() => {
   // eslint-disable-next-line func-style
   function appendMessage(message) {
     const messageElement = document.createElement('div');
+    // const messageElement = $('<div/>');
     messageElement.innerText = message;
     messageContainer.append(messageElement);
   }
