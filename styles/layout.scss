@@ -254,10 +254,12 @@ body {
     height: auto;
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     place-items: center;
+    grid-auto-rows: minmax(100px, auto);
   }
 
+  .featured-item {}
 
   .featured-container img {
     width: 300px;
@@ -412,4 +414,16 @@ body {
 
     }
   }
+}
+
+
+footer {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+#site_footer_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
