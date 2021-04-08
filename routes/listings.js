@@ -49,7 +49,11 @@ module.exports = (db) => {
 
     db.query( queryString, queryParams)
     .then(data => {
-      const templateVars = {"listings": data.rows, "user_id": req.session.user_id};
+      const templateVars = {"listings": data.rows, "user_id": req.session.user_id, "dberror": ""};
+      if (data.rows.length === 0) {
+        console.log("*********************************************armadillo");
+        templateVars["dberror"] = "No results found."
+      }
       res.render("listings", templateVars);
       // res.json(templateVars);
       // console.log("Abcdefghij:", data);
