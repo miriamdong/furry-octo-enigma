@@ -125,19 +125,21 @@ body {
     display: flex;
     align-items: center;
     font-family: "Karla", sans-serif;
-  img {
-    object-fit: cover;
-    width: 80%;
-    height: auto;
-    cursor: pointer;
-    place-items: center;
-  }
+
+    img {
+      object-fit: cover;
+      width: 80%;
+      height: auto;
+      cursor: pointer;
+      place-items: center;
+    }
 
     textarea {
       margin: 10px;
       border-radius: 3px;
       border: none;
     }
+
     button {
       background-color: #90d8d4;
       border-radius: 2px;
@@ -147,6 +149,7 @@ body {
       color: white;
     }
   }
+
   .listing-container {
     display: grid;
     grid-template-columns: 85% 15%;
@@ -158,41 +161,41 @@ body {
     box-shadow: 5px 5px #8d92bb;
 
     .img-container {
-  div.img-container {
-    width: 400px;
-    height: 400px;
-    overflow: hidden;
-    border-radius: 15%;
-    margin: 5px 0 5px 7px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+      div.img-container {
+        width: 400px;
+        height: 400px;
+        overflow: hidden;
+        border-radius: 15%;
+        margin: 5px 0 5px 7px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-  }
+      }
 
-  .listing-container .img-container {
-    grid-column: 1/2;
-    width: 300px;
-    height: 300px;
-    overflow: hidden;
-    border-radius: 15%;
-    margin: 5px 0 5px 7px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+      .listing-container .img-container {
+        grid-column: 1/2;
+        width: 300px;
+        height: 300px;
+        overflow: hidden;
+        border-radius: 15%;
+        margin: 5px 0 5px 7px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
-  }
 
-  .img-container img {
-    object-fit: cover;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    cursor: pointer;
-    align-items: center;
-    margin-left: auto;
-  }
+    .img-container img {
+      object-fit: cover;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      cursor: pointer;
+      align-items: center;
+      margin-left: auto;
+    }
 
     img {
       object-fit: cover;
@@ -211,15 +214,15 @@ body {
 
     section {
       display: grid;
-    grid-template-columns: 50% 25% 25%;
-    place-items: center;
+      grid-template-columns: 50% 25% 25%;
+      place-items: center;
     }
 
     .action-buttons {
-    grid-column: 1/4;
-    display: flex;
-    flex-direction: row;
-    padding: 10px;
+      grid-column: 1/4;
+      display: flex;
+      flex-direction: row;
+      padding: 10px;
     }
 
     button {
@@ -278,6 +281,7 @@ body {
     padding: 10px;
     box-shadow: 5px 5px #8d92bb;
   }
+
   .img-container {
     grid-column: 1/2;
     width: 300px;
@@ -288,8 +292,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    }
+  }
 }
+
 // Messages Styling
 #chat {
   // border: green solid 5px;
@@ -373,11 +378,13 @@ body {
     margin: 15px;
     box-shadow: 5px 5px #8d92bb;
     padding: 30px;
+    width: 80%;
 
     h2 {
       font-family: "Oswald", sans-serif;
       font-weight: 400;
     }
+
     textarea {
       margin: 10px;
       border-radius: 3px;
