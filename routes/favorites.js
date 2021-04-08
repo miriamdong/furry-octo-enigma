@@ -12,7 +12,7 @@ module.exports = (db) => {
       return res.redirect("/");
     }
     db.query(`
-    SELECT DISTINCT favorites.date_added, users.name, listings.*, favorites.user_id
+    SELECT DISTINCT favorites.date_added, users.name, listings.*, favorites.user_id, favorites.listing_id
     FROM favorites
     JOIN users ON favorites.user_id = users.id
     JOIN listings ON listings.id = favorites.listing_id
@@ -28,7 +28,7 @@ module.exports = (db) => {
         }; //"listing": data.rows,
         res.render("favorites", templateVars);
         // const users = data.rows;
-        // res.json({ data });
+        // res.json(data.rows);
       })
       .catch(err => {
         res.status(500);
@@ -61,10 +61,10 @@ module.exports = (db) => {
         }
         // res.done();
         // const users = data.rows;
-        // res.json({ users });
 
       })
       .then(data => {
+        // res.json({ data });
         res.redirect("/listings");
       })
       .catch(err => {
