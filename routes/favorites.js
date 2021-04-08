@@ -5,19 +5,21 @@ module.exports = (db) => {
 
   //get favorites page
   router.get("/", (req, res) => {
+    const user = req.session.user_id;
     // res.json({hello: "how are you"})
     // res.json(req.session.user_id);
     if (!req.session.user_id) {
       return res.redirect("/");
     }
     db.query(`
-    SELECT favorites.date_added, users.name, listings.*, favorites.user_id
+    SELECT DISTINCT favorites.date_added, users.name, listings.*, favorites.user_id
     FROM favorites
     JOIN users ON favorites.user_id = users.id
     JOIN listings ON listings.id = favorites.listing_id
     WHERE favorites.user_id = 1
     GROUP BY favorites.user_id, users.name, favorites.listing_id, favorites.date_added, listings.title, listings.id
-    ORDER BY favorites.date_added;`)
+    ORDER BY favorites.date_added
+    LIMIT 10;`)
       .then(data => {
         // console.log("****************************************************POTATO:", data);
         const templateVars = {
@@ -63,7 +65,7 @@ module.exports = (db) => {
 
       })
       .then(data => {
-        res.redirect("/listings")
+        res.redirect("/listings");
       })
       .catch(err => {
         res.status(500);
