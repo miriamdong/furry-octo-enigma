@@ -19,7 +19,7 @@ module.exports = (db) => {
     GROUP BY favorites.user_id, users.name, favorites.listing_id, favorites.date_added, listings.title, listings.id
     ORDER BY favorites.date_added;`)
       .then(data => {
-        console.log("****************************************************POTATO:", data);
+        // console.log("****************************************************POTATO:", data);
         const templateVars = {
           "user_id": req.session.user_id,
           "favorites": data.rows
@@ -42,16 +42,27 @@ module.exports = (db) => {
       // console.log("is this printing");
       return res.redirect("/");
     }
+
     const queryParams = ["1", req.params.listingid]; //"1" can easily be swapped out for a user cookie down the road
-    const queryString = `INSERT INTO favorites (user_id, listing_id, date_added)
-    VALUES
-    ($1, $2, NOW())`;
+    const queryString = `SELECT * FROM favorites WHERE favorites.user_id = $1 AND favorites.listing_id = $2`;
     db.query(queryString, queryParams)
+
       .then(data => {
-        // console.log("*****************************************************Abcdefghij:", data);
+        console.log("*****************************************************Abcdefghij:", data);
+
+        if (data.rows.length === 0) {
+          const queryParams2 = ["1", req.params.listingid]; //"1" can easily be swapped out for a user cookie down the road
+          const queryString2 = `INSERT INTO favorites (user_id, listing_id, date_added)
+          VALUES
+          ($1, $2, NOW())`;
+          db.query(queryString2, queryParams2)
+        }
         // res.done();
         // const users = data.rows;
         // res.json({ users });
+
+      })
+      .then(data => {
         res.redirect("/listings")
       })
       .catch(err => {
