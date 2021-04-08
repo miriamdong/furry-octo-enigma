@@ -23,7 +23,7 @@ $(() => {
   const messageInput = $('#message-input');
 
   console.log('here!!!');
-  const name = $('#username');
+  const name = "<%=currentUser.username%>";
   appendMessage('You joined');
   socket.emit('new-user', name);
 
@@ -50,9 +50,10 @@ $(() => {
   messageForm.on('submit', e => {
     e.preventDefault();
     const message = messageInput.val();
+
     appendMessage(`You: ${ message }`);
     socket.emit('send-chat-message', message);
-    messageInput.value = '';
+    $("#message-input").val("");
   });
 
 
@@ -110,7 +111,7 @@ $(() => {
   // });
 
 
-  $(".fave").click(function(e) {
+  $("#fave").click(function(e) {
     console.log('here');
     $(this).toggleClass("active");
   });
