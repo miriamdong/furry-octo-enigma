@@ -101,7 +101,6 @@ body {
   padding-top: 15vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
-
   // justify-content: center;
   place-items: center;
 
@@ -126,6 +125,13 @@ body {
     display: flex;
     align-items: center;
     font-family: "Karla", sans-serif;
+  img {
+    object-fit: cover;
+    width: 80%;
+    height: auto;
+    cursor: pointer;
+    place-items: center;
+  }
 
     textarea {
       margin: 10px;
@@ -152,6 +158,19 @@ body {
     box-shadow: 5px 5px #8d92bb;
 
     .img-container {
+  div.img-container {
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 15%;
+    margin: 5px 0 5px 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .listing-container .img-container {
     grid-column: 1/2;
     width: 300px;
     height: 300px;
@@ -162,6 +181,18 @@ body {
     justify-content: center;
     align-items: center;
     }
+  }
+
+  .img-container img {
+    object-fit: cover;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    align-items: center;
+    margin-left: auto;
+  }
 
     img {
       object-fit: cover;
@@ -206,6 +237,24 @@ body {
   div.right-side {
     grid-column: 2/2;
   }
+
+
+  .featured-container {
+    height: auto;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+  }
+
+
+  .featured-container img {
+    width: 300px;
+    height: 300px;
+    align-items: center;
+    place-items: center;
+  }
+
 
 
   .fave {
