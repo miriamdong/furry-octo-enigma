@@ -1,5 +1,15 @@
 // See: https://sass-lang.com/
 
+button {
+  font-family: "Karla", sans-serif;
+  background-color: #90d8d4;
+  border-radius: 2px;
+  padding: 0.5em 0.75em;
+  border: none;
+  margin: 3px;
+  color: white;
+}
+
 nav {
   // display: none;
   // flex-direction: column;
