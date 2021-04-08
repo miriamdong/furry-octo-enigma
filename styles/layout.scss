@@ -101,7 +101,7 @@ body {
   padding-top: 15vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  // justify-content: center;
+  justify-content: center;
   place-items: center;
 
   h1 {
@@ -155,19 +155,20 @@ body {
   .listing-container {
     display: grid;
     grid-template-columns: 85% 15%;
-    width: 80%;
+    width: 90%;
     place-items: center;
-    border: grey solid 3px;
+    border: #c0c0c0 solid 1px;
     border-radius: 20px;
-    margin: 15px;
+    margin: 0 auto;
+    margin-bottom: 10px;
     padding: 10px;
-    box-shadow: 5px 5px #8d92bb;
+    box-shadow: 5px 5px 15px #8d92bb;
     grid-gap: 1em;
 
     .img-container {
       div.img-container {
-        width: 400px;
-        height: 400px;
+        width: 300px;
+        height: 300px;
         overflow: hidden;
         border-radius: 15%;
         margin: 5px 0 5px 7px;
@@ -179,8 +180,8 @@ body {
 
       .listing-container .img-container {
         grid-column: 1/2;
-        width: 300px;
-        height: 300px;
+        width: 250px;
+        height: 250px;
         overflow: hidden;
         border-radius: 15%;
         margin: 5px 0 5px 7px;
@@ -218,6 +219,7 @@ body {
 
     section {
       display: grid;
+      width: 100%;
       grid-template-columns: 50% 50%;
       place-items: center;
     }
