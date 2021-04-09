@@ -88,6 +88,30 @@ $(() => {
   }
 
 
+
+  $("#tabs-1").click(function() {
+    $('tabs').removeClass('inactive');
+    $(this).addClass('inactive');
+    $(".container").addClass('inactive');
+    $("#tab2").removeClass('inactive');
+  });
+
+  $("#tabs-2").click(function() {
+    $('tabs').removeClass('inactive');
+    $(this).addClass('inactive');
+    $(".container").addClass('inactive');
+    $("#tab1").removeClass('inactive');
+
+  });
+
+  // $("#tabs-1").click(function() {
+  //   $(this).toggleClass('inactive');
+  //   $("#tab1").animate({
+  //     height: 'toggle'
+  //   });
+  // });
+
+
   // $('.faveB').click(function(e) {
   //   e.preventDefault();
   //   $.ajax({
