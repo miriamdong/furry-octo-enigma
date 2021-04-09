@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <title>Media Buy & Sell - Favourites</title>
     <%- include('partials/_head') %>
@@ -10,10 +11,10 @@
     <h1>Your Favourite Listings</h1>
 
     <% for (let favorite in favorites) { %>
-      <div class="favorites-container">
-        <img class='img-container' src="<%=favorites[favorite]['image_url'] %>" />
-        <div class="favorite-info">
-          <section>
+    <div class="favorites-container">
+      <img class='img-container' src="<%=favorites[favorite]['image_url'] %>" />
+      <div class="favorite-info">
+        <section>
           <h4><%- favorites[favorite]['title'] %></h4>
           <p>$<%- favorites[favorite]['price'] %>.00</p>
         </section>
@@ -21,24 +22,26 @@
           <form method="GET" action="/listings/<%- favorites[favorite]['id']%>">
             <button type="submit">
               <i class="far fa-eye"></i>
-               View More
-           </button>
-         </form>
-         <form method="GET" action="/messages/">
-          <button type="submit">
-            <i class="fas fa-comments"></i>
-            Message Seller
-          </button>
-        </form>
-        <form method="POST" class="favbutton" action="/favorites/<%- favorites[favorite]['id']%>/delete">
-          <button type="submit">
-            <i class="fas fa-heart"></i>
-            Unfavourite
-          </button>
-        </form>
+              View More
+            </button>
+          </form>
+          <form method="GET" action="/messages/">
+            <button type="submit">
+              <i class="fas fa-comments"></i>
+              Message Seller
+            </button>
+          </form>
+          <form method="POST" class="favbutton" action="/favorites/<%- favorites[favorite]['id']%>/delete">
+            <button type="submit">
+              <i class="fas fa-heart"></i>
+              Unfavourite
+            </button>
+          </form>
+        </div>
       </div>
     </div>
-    </div>
-      <% } %>
+    <% } %>
   </body>
+  <%- include('partials/_footer') %>
+
 </html>

@@ -23,13 +23,13 @@ $(() => {
   const messageInput = $('#message-input');
 
 
-  const name = "admin";
+  const name = window.user_id || 'admin';
   appendMessage('You joined');
   socket.emit('new-user', name);
 
 
   socket.on('chat-message', data => {
-    appendMessage(`${ data.name }: ${ data.message }`);
+    appendMessage(`${ window.user_id || 'admin'}: ${ data.message }`);
   });
 
   socket.on('connect', data => {
@@ -80,7 +80,7 @@ $(() => {
     // debugger
     // console.log("good to go");
     $.post(`/favorites/${$(this).attr("action").split("/")[2]}`)
-    .then(function(result){
+      .then(function(result) {
         // debugger
         // $(".faveButton").css("background-color", "red");
         // $(this).css("background-color", "red");
