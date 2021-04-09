@@ -557,18 +557,6 @@ body {
   }
 }
 
-
-footer {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-}
-
-#site_footer_list {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-
 // Listing ID page
 
 #listing-id-page {
@@ -595,5 +583,54 @@ footer {
 
   button {
     margin-bottom: 10px;
+  }
+}
+
+// Footer styling
+
+footer {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+
+#site_footer_wrap {
+  width: 100vw;
+  background-color: #90d8d4;
+  font-family: "Karla", sans-serif;
+  font-size: larger;
+
+  #site_footer_list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  h5 {
+    font-size: larger;
+    margin: 20px;
+  }
+  ul {
+    text-decoration: none;
+    color: white;
+    list-style: none;
+  }
+
+  li {
+    text-decoration:none;
+    color: white;
+    list-style: none;
+  }
+
+  a {
+    text-decoration:none;
+    color: white;
+    margin: 10px;
+  }
+
+  #site-footer-legal {
+    display: flex;
+    justify-content: space-around;
+
   }
 }
