@@ -1,5 +1,5 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 // const getAllListings = require('../db/seeds/01_users.sql');
 // const getAllListings = require('../db/database.js');
 
@@ -8,7 +8,9 @@ module.exports = (db) => {
     if (req.session.user_id !== "admin") {
       return res.redirect("/");
     }
-    const templateVars = {"user_id": req.session.user_id}
+    const templateVars = {
+      "user_id": req.session.user_id
+    };
     res.render("newlisting", templateVars);
   });
   return router;

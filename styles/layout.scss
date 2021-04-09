@@ -117,10 +117,11 @@ nav {
 body {
   background-color: #EEE;
   padding-top: 15vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   place-items: center;
+  min-height: 100vh;
 
   h1 {
     color: #244751;
@@ -346,6 +347,7 @@ body {
     flex-direction: column;
     justify-content: center;
     width: 80%;
+    flex-grow: 1;
   }
 
   .messaging {
@@ -399,8 +401,6 @@ body {
 // New Listings Styling
 
 #new-listing-page {
-  display: flex;
-  justify-content: center;
 
   .new-listing-form {
     border-radius: 20px;
@@ -579,20 +579,54 @@ body {
 footer {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
+  justify-content: space-between;
+  background-color: #3aafa9;
+  padding: 10px;
+  font-family: "Karla", sans-serif;
+  // height: 10vh;
+  // border: solid blueviolet 5px;
+
+  .site_footer_list {
+
+    justify-content: space-between;
+    background-color: #90d8d4;
+    padding: 5px;
+    list-style: none;
+
+  }
+
+
+  #site_footer_list {
+    display: grid;
+    list-style: none;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  li {
+    list-style: none;
+
+  }
+
+  a {
+    margin-left: -40px;
+    color: white;
+    text-decoration: none;
+  }
+
+  #site_footer_legal a {
+    margin-left: 20px;
+  }
 }
 
-#site_footer_list {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-}
 
 // Listing ID page
 
 #listing-id-page {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
+  width: 100%;
 
   p {
     font-family: "Karla", sans-serif;
