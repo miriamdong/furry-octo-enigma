@@ -15,30 +15,37 @@
       <h2>Create New Listing</h3>
         <form method="POST" action="/listings" name="myForm" onsubmit="return(validate())">
           <!-- <form method="POST" action="/listings"> -->
-          <label>Title of Listing:</label><br>
-          <textarea name="listingtitle" placeholder="Title of Listing"></textarea><br>
-          <label>Image:</label> <span class='file file--upload'>
-            <label for='input-file'><a><i class="fas fa-upload"></i></a></label>
-            <input id='input-file' type='file' /></span><br>
-          <textarea name="image" placeholder="Image URL"></textarea>
-          <br>
-          <label>Price:</label><br>
-          <textarea name="price" placeholder="Price"></textarea><br>
-          <label>Description:</label><br>
-          <textarea name="description" placeholder="Description"></textarea><br>
 
-          <p> Item Details:</p>
-          <label>Album Name:</label><br>
-          <textarea name="albumname" placeholder="Album Name"></textarea><br>
-          <label>Artist:</label><br>
-          <textarea name="artistname" placeholder="Artist Name"></textarea><br>
-          <label>Genre:</label><br>
-          <textarea name="genre" placeholder="Genre"></textarea><br>
-          <label>Publisher:</label><br>
-          <textarea name="publisher" placeholder="Publisher"></textarea><br>
-          <label>Year Released:</label><br>
-          <textarea name="year" placeholder="Year Released"></textarea><br>
 
+          <ul id='tabs'>
+            <li><a id="tabs-1">Listing Information</a></li>
+            <li><a id="tabs-2">Album Information</a></li>
+          </ul>
+          <div class="container" id="tab1">
+            <label>Title of Listing:</label><br>
+            <textarea class="textbox" name="listingtitle" placeholder="Title of Listing"></textarea><br>
+            <label>Image:</label> <span class='file file--upload'>
+              <label for='input-file'><a><i class="fas fa-upload"></i></a></label>
+              <input id='input-file' type='file' /></span><br>
+            <textarea name="image" placeholder="Image URL"></textarea>
+            <br>
+            <label>Price:</label><br>
+            <textarea name="price" placeholder="Price"></textarea><br>
+            <label>Description:</label><br>
+            <textarea name="description" placeholder="Description"></textarea><br>
+          </div>
+          <div class="container inactive" id="tab2">
+            <label>Album Name:</label><br>
+            <textarea name="albumname" placeholder="Album Name"></textarea><br>
+            <label>Artist:</label><br>
+            <textarea name="artistname" placeholder="Artist Name"></textarea><br>
+            <label>Genre:</label><br>
+            <textarea name="genre" placeholder="Genre"></textarea><br>
+            <label>Publisher:</label><br>
+            <textarea name="publisher" placeholder="Publisher"></textarea><br>
+            <label>Year Released:</label><br>
+            <textarea name="year" placeholder="Year Released"></textarea><br>
+          </div>
           <p>Do you want this listing to be featured?</p>
           <input type="radio" id="featuredY" name="featured" value="true">
           <label for="featuredY">Yes</label>

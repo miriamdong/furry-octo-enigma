@@ -483,12 +483,6 @@ body {
       display: none;
     }
 
-    .container.active {
-      background-color: black;
-      display: none;
-    }
-
-
 
     textarea {
       margin: 10px;
@@ -507,11 +501,11 @@ body {
       background-position: -200px 0;
       background-size: 200px 100%;
       background-repeat: no-repeat;
-      color: #90d8d4;
+      color: #2e7470;
 
       .textbox:focus::-webkit-input-placeholder,
       .textbox:valid::-webkit-input-placeholder {
-        color: #3aafa9;
+
         font-size: 11px;
         -webkit-transform: translateY(-20px);
         transform: translateY(-20px);
