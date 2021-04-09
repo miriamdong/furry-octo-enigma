@@ -101,27 +101,23 @@ $(() => {
 
 
 
-  $("#tabs-1").click(function() {
-    $('tabs').removeClass('inactive');
-    $(this).addClass('inactive');
-    $(".container").addClass('inactive');
-    $("#tab2").removeClass('inactive');
+
+
+  $(".tabs1").click(function() {
+    $(this).removeClass("inactive");
+    $(".tabs2").addClass("inactive");
+
+    $(".tab1").removeClass("inactive");
+    $(".tab2").addClass("inactive");
   });
 
-  $("#tabs-2").click(function() {
-    $('tabs').removeClass('inactive');
-    $(this).addClass('inactive');
-    $(".container").addClass('inactive');
-    $("#tab1").removeClass('inactive');
+  $(".tabs2").click(function() {
+    $(this).removeClass("inactive");
+    $(".tabs1").addClass("inactive");
 
+    $(".tab2").removeClass("inactive");
+    $(".tab1").addClass("inactive");
   });
-
-  // $("#tabs-1").click(function() {
-  //   $(this).toggleClass('inactive');
-  //   $("#tab1").animate({
-  //     height: 'toggle'
-  //   });
-  // });
 
 
   // $('.faveB').click(function(e) {
