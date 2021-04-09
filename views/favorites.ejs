@@ -17,6 +17,7 @@
         <section>
           <h4><%- favorites[favorite]['title'] %></h4>
           <p>$<%- favorites[favorite]['price'] %>.00</p>
+          <p>$<%- favorites[favorite]['description'] %></p>
         </section>
         <div class="action-buttons">
           <form method="GET" action="/listings/<%- favorites[favorite]['id']%>">
