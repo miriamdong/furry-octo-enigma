@@ -94,7 +94,25 @@ nav {
   }
 }
 
+.homepage-banner {
+  height: auto;
+  width: 100%;
+  padding: 235px;
+  color: white;
+  background-image: url("https://www.selfstorageplus.com/wp-content/uploads/2020/05/Storing-Vinyl-Records-Horizontally-Self-Storage-Plus-min.jpg");
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 20px;
+  margin-bottom: 20px;
 
+  h1 {
+    color: black;
+    font-size: 3em;
+  }
+  h3 {
+    color: black;
+    font-size: larger;
+  }
+}
 
 body {
   background-color: #EEE;
