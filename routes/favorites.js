@@ -46,7 +46,7 @@ module.exports = (db) => {
     }
 
     const queryParams = ["1", req.params.listingid]; //"1" can easily be swapped out for a user cookie down the road
-    const queryString = `SELECT * FROM favorites WHERE favorites.user_id = $1 AND favorites.listing_id = $2`;
+    const queryString = `SELECT DISTINCT * FROM favorites WHERE favorites.user_id = $1 AND favorites.listing_id = $2`;
     db.query(queryString, queryParams)
 
       .then(data => {

@@ -2,12 +2,19 @@
 
 button {
   font-family: "Karla", sans-serif;
-  background-color: #90d8d4;
+  background-color: #3aafa9;
   border-radius: 2px;
   padding: 0.5em 0.75em;
   border: none;
   margin: 3px;
   color: white;
+}
+
+
+button:hover {
+
+  background-color: #90d8d4;
+
 }
 
 nav {
@@ -95,22 +102,56 @@ nav {
 }
 
 .homepage-banner {
-  height: auto;
+  height: 70vh;
   width: 100%;
-  padding: 235px;
   color: white;
-  background-image: url("https://www.selfstorageplus.com/wp-content/uploads/2020/05/Storing-Vinyl-Records-Horizontally-Self-Storage-Plus-min.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://www.selfstorageplus.com/wp-content/uploads/2020/05/Storing-Vinyl-Records-Horizontally-Self-Storage-Plus-min.jpg");
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 20px;
+  // border-radius: 20px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-size: cover;
   margin-bottom: 20px;
+  margin-top: -30px;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
 
   h1 {
     color: black;
     font-size: 3em;
+    text-align: center;
+    margin-top: 200px;
+    font-size: 50px;
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serifpx;
+    color: white;
+    font-weight: bold;
+    text-shadow: rgba(77, 77, 77, 0.77) -12px -1px 42px,
+      rgba(27, 26, 26, 0.77) -11px 0px 42px;
+    -webkit-box-reflect: below -23px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(22%, transparent), to(rgba(255, 255, 255, 0.10)));
+    filter: brightness(100%);
   }
-  h3 {
+
+  .btn {
+    border: 2px solid white;
+    padding: 20px 25px;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+  }
+
+  .btn:hover {
+    background-color: white;
     color: black;
-    font-size: larger;
+  }
+
+  h2 {
+    font-family: "Karla", sans-serif;
+    color: #167064;
+    color: #90d8d4;
+    font-size: 2em;
+    text-align: center;
   }
 }
 
@@ -123,14 +164,21 @@ body {
   place-items: center;
   min-height: 100vh;
 
+
+  .homepage-title {
+    padding: 50px;
+    text-align: center;
+  }
+
   h1 {
-    color: #244751;
-    font-family: "Oswald", sans-serif;
+    color: #030303;
+    font-family: "Karla", sans-serif;
     font-weight: 500;
+    font-size: 3em;
   }
 
   h2 {
-    font-family: "Oswald", sans-serif;
+    font-family: "Karla", sans-serif;
     font-weight: 500;
   }
 
@@ -275,10 +323,11 @@ body {
   .featured-container {
     height: auto;
     display: grid;
-    grid-gap: 1rem;
+    grid-gap: 2rem;
     grid-template-columns: repeat(3, 1fr);
     place-items: center;
     grid-auto-rows: minmax(100px, auto);
+    margin-bottom: 50px;
   }
 
   .featured-item {}
@@ -288,6 +337,12 @@ body {
     height: 300px;
     align-items: center;
     place-items: center;
+    border-radius: 10px;
+    background: #F5F5F5;
+    color: #000;
+    display: inline-block;
+    box-shadow: rgba(163, 163, 163, 0.82) 10px 5px 21px -2px;
+
   }
 
 
@@ -583,8 +638,12 @@ footer {
   background-color: #3aafa9;
   padding: 10px;
   font-family: "Karla", sans-serif;
-  // height: 10vh;
-  // border: solid blueviolet 5px;
+
+
+  #site_footer_wrap {
+    max-height: fit-content;
+
+  }
 
   .site_footer_list {
 
@@ -611,6 +670,12 @@ footer {
     margin-left: -40px;
     color: white;
     text-decoration: none;
+  }
+
+  #site_footer_legal {
+    padding-top: 15px;
+    padding-bottom: 10px;
+    border-top: 1px solid white;
   }
 
   #site_footer_legal a {

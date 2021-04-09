@@ -6,22 +6,25 @@ module.exports = (db) => {
   router.get("/:listingid", (req, res) => {
     // console.log("POTATO:", req.session.user_id)
     db.query(`SELECT * FROM listings WHERE id = ${req.params.listingid};`)
-    .then(data => {
-      const templateVars = {"listing": data.rows, "user_id": req.session.user_id};
-      if (data.rows.length > 0) {
-        return res.render("listingsid", templateVars);
-        // return res.json(data.rows)
-      }
-      return res.redirect("/error");
-      // res.json(templateVars);
-      // console.log("Abcdefghij:", data);
-      // const users = data.rows;
-    })
-    .catch(err => {
-      res.status(500);
-      console.log("ERROR in listings.js:", err);
-      //   .json({ error: err.message });
-    });
+      .then(data => {
+        const templateVars = {
+          "listing": data.rows,
+          "user_id": req.session.user_id
+        };
+        if (data.rows.length > 0) {
+          return res.render("listingsid", templateVars);
+          // return res.json(data.rows)
+        }
+        return res.redirect("/error");
+        // res.json(templateVars);
+        // console.log("Abcdefghij:", data);
+        // const users = data.rows;
+      })
+      .catch(err => {
+        res.status(500);
+        console.log("ERROR in listings.js:", err);
+        //   .json({ error: err.message });
+      });
     console.log("success", db);
   });
 
@@ -47,23 +50,27 @@ module.exports = (db) => {
 
     queryString += `;`;
 
-    db.query( queryString, queryParams)
-    .then(data => {
-      const templateVars = {"listings": data.rows, "user_id": req.session.user_id, "dberror": ""};
-      if (data.rows.length === 0) {
-        console.log("*********************************************armadillo");
-        templateVars["dberror"] = "No results found."
-      }
-      res.render("listings", templateVars);
-      // res.json(templateVars);
-      // console.log("Abcdefghij:", data);
-      // const users = data.rows;
-    })
-    .catch(err => {
-      res.status(500);
-      console.log("ERROR in listings.js:", err);
-      //   .json({ error: err.message });
-    });
+    db.query(queryString, queryParams)
+      .then(data => {
+        const templateVars = {
+          "listings": data.rows,
+          "user_id": req.session.user_id,
+          "dberror": ""
+        };
+        if (data.rows.length === 0) {
+          console.log("*********************************************armadillo");
+          templateVars["dberror"] = "No results found."
+        }
+        res.render("listings", templateVars);
+        // res.json(templateVars);
+        // console.log("Abcdefghij:", data);
+        // const users = data.rows;
+      })
+      .catch(err => {
+        res.status(500);
+        console.log("ERROR in listings.js:", err);
+        //   .json({ error: err.message });
+      });
     console.log("success", db);
   });
 
@@ -82,18 +89,18 @@ module.exports = (db) => {
     VALUES
     ($1, $2, $3, NOW(), $4, $5, $6, $7)`;
     //url, 6, 'War', 'April 17, 2019', true, 50, true)
-    db.query( queryString, queryParams)
-    .then(data => {
-      // console.log("*****************************************************Abcdefghij:", data);
-      // const users = data.rows;
-      // res.json({ users });
-      res.redirect("/listings");
-    })
-    .catch(err => {
-      res.status(500);
-      console.log("ERROR in favorites.js:", err);
-      //   .json({ error: err.message });
-    });
+    db.query(queryString, queryParams)
+      .then(data => {
+        // console.log("*****************************************************Abcdefghij:", data);
+        // const users = data.rows;
+        // res.json({ users });
+        res.redirect("/listings");
+      })
+      .catch(err => {
+        res.status(500);
+        console.log("ERROR in favorites.js:", err);
+        //   .json({ error: err.message });
+      });
   });
 
   //******************************** LISTING UPDATE ******************************
@@ -111,20 +118,20 @@ module.exports = (db) => {
     WHERE id = $1`;
 
     const queryParams = [req.params.listingid];
-    db.query( queryString, queryParams)
-    .then(data => {
-      // const templateVars = {"listing": data.rows, "user_id": req.session.user_id};
-      // res.render("listingsid", templateVars);
-      // res.json(templateVars);
-      // console.log("Abcdefghij:", data);
-      // const users = data.rows;
-      res.redirect(`/listings/${req.params.listingid}`);
-    })
-    .catch(err => {
-      res.status(500);
-      console.log("ERROR in listings.js:", err);
-      //   .json({ error: err.message });
-    });
+    db.query(queryString, queryParams)
+      .then(data => {
+        // const templateVars = {"listing": data.rows, "user_id": req.session.user_id};
+        // res.render("listingsid", templateVars);
+        // res.json(templateVars);
+        // console.log("Abcdefghij:", data);
+        // const users = data.rows;
+        res.redirect(`/listings/${req.params.listingid}`);
+      })
+      .catch(err => {
+        res.status(500);
+        console.log("ERROR in listings.js:", err);
+        //   .json({ error: err.message });
+      });
   });
 
   //******************************** LISTING DELETE ******************************
@@ -139,20 +146,20 @@ module.exports = (db) => {
     WHERE id = $1`;
 
     const queryParams = [req.params.listingid];
-    db.query( queryString, queryParams)
-    .then(data => {
-      // const templateVars = {"listing": data.rows, "user_id": req.session.user_id};
-      // res.render("listingsid", templateVars);
-      // res.json(templateVars);
-      // console.log("Abcdefghij:", data);
-      // const users = data.rows;
-      res.redirect(`/listings`);
-    })
-    .catch(err => {
-      res.status(500);
-      console.log("ERROR in listings.js:", err);
-      //   .json({ error: err.message });
-    });
+    db.query(queryString, queryParams)
+      .then(data => {
+        // const templateVars = {"listing": data.rows, "user_id": req.session.user_id};
+        // res.render("listingsid", templateVars);
+        // res.json(templateVars);
+        // console.log("Abcdefghij:", data);
+        // const users = data.rows;
+        res.redirect(`/listings`);
+      })
+      .catch(err => {
+        res.status(500);
+        console.log("ERROR in listings.js:", err);
+        //   .json({ error: err.message });
+      });
   });
   return router;
 };
