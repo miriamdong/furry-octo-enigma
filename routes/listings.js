@@ -33,7 +33,7 @@ module.exports = (db) => {
     console.log(`************************************Potato`, req.query);
     // res.json({hello: "how are you"})
     let queryString = `SELECT * FROM listings WHERE TRUE `;
-    const queryParams = []
+    const queryParams = [];
 
     if (req.query.min > 0) {
       queryParams.push(req.query.min);

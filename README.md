@@ -41,7 +41,37 @@ The following steps are only for _one_ of the group members to perform.
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+- body-parser
+- chalk
+- cookie-session
+- dotenv
+- ejs
+- express
+- faker
+- jquery
+- knex
+- moment
+- morgan
+- node-sass-middleware
+- pg
+- pg-native
+- serve-static
+- socket.io
+- socket.io-client
 
+## Final Product
+
+!["Screenshot of the app on desktop"](https://github.com/miriamdong/mediabuy/blob/master/doc/screencapture-localhost-8080-2021-04-08-23_16_06.png?raw=true)
+!["Screenshot of all listings"](https://github.com/miriamdong/mediabuy/blob/master/doc/screencapture-localhost-8080-listings-2021-04-08-23_24_06.png?raw=true)
+
+
+## User Stories
+
+!["Screenshot of User Stories"](https://github.com/miriamdong/mediabuy/blob/master/doc/User%20Story%20Map%20Framework%20(1).jpg?raw=true)
+
+## ERD
+
+!["Screenshot of ERD"](https://github.com/miriamdong/mediabuy/blob/master/doc/Screen%20Shot%202021-04-05%20at%209.53.20%20AM.png?raw=true)
 
 ## Project Specific Requirements
 
