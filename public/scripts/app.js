@@ -75,8 +75,20 @@ $(() => {
 
 
 
-  $("#faveButton").click(function() {
-    $(this.children).css("color", "red");
+  $(".faveButton").submit(function(event) {
+    event.preventDefault();
+    // debugger
+    // console.log("good to go");
+    $.post(`/favorites/${$(this).attr("action").split("/")[2]}`)
+    .then(function(result){
+        // debugger
+        // $(".faveButton").css("background-color", "red");
+        // $(this).css("background-color", "red");
+        $(event.target).children("button").css("background-color", "red");
+        $(event.target).children("button").text("Added to Favourites")
+        //css("color", "red");
+        console.log('Success:', $(this).children("button").css);
+      });
   });
 
   // eslint-disable-next-line func-style
